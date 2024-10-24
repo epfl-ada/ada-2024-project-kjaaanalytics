@@ -1,14 +1,48 @@
 
-# Your project name
-This is a template repo for your project to help you organise and document your code better. 
-Please use this structure for your project and document the installation, usage and structure as below.
+# A semantic analysis of trends in beer descriptions
+
+## Abstract
+Climate is known to affect the culture a lot. In our project we will see if we can observe this climatic influence on culture, via analyzing the semantic used in beers descriptions reviews. To do so, we will:
+- combine geospatial analysis and spatial analysis to do a geographical description of the semantic used to describe beers.
+- link it with climatic data to find correlations between the 2 variables.
+
+*Problems Julie*:
+- culture is a bit too much of a wide concept, how to you differentiate between 2 different cultures, how far away must they be to be different??
+- c'est un peu réducteur d'associer tout la culture d'un pays à la description de bières
+- jsp si on va pouvoir truver des meaningful conclusions avec l'analyse semantic
+- pas tout le dataset est en anglais
+
+## Research Questions
+
+## Proposed additional datasets
+
+- Chelsa dataset (use Chelas timeseries at monthly resolution), 30 arcsec resolution, mean temperature and precipitation amount, 1979-2013.
+    - *data*: https://chelsa-climate.org/downloads/
+    - *technical specifications*: https://chelsa-climate.org/wp-admin/download-page/CHELSA_tech_specification.pdf
+    - *data organisation*: Individual .tiff files for each variable and each month, approx size=14.34 GB 
+    - *paper*: Karger D.N., Conrad, O., Böhner, J., Kawohl, T., Kreft, H., Soria-Auza, R.W., Zimmermann, N.E, Linder, H.P., Kessler, M. (2018): Data from: Climatologies at high resolution for the earth’s land surface areas. EnviDat. https://doi.org/10.16904/envidat.228.v2.1
+
+- WorldClim dataset (use Historical monthly weather data), 2.5 - 10 arcmin resolution (2.5' is approx.20km at the equator), min / max temperature and total precipitation, 1960-2021. 
+    - *data*: https://www.worldclim.org/data/monthlywth.html
+    - *data organisation*:  Individual .tiff files for each variable and each month, approx size=0.89 GB (for the period 1979-2013 2.5' resolution)
+    - *paper*: Fick, S.E. and Hijmans, R.J. (2017), WorldClim 2: new 1-km spatial resolution climate surfaces for global land areas. Int. J. Climatol, 37: 4302-4315. https://doi.org/10.1002/joc.5086
+
+
+## Methods
+
+## Proposed timeline
+
+## Organization within the team
+
+## Questions for TAs
+
 
 ## Quickstart
 
 ```bash
 # clone project
-git clone <project link>
-cd <project repo>
+git clone git@github.com:epfl-ada/ada-2024-project-kjaaanalytics.git
+cd ada-2024-project-kjaaanalytics.git
 
 # [OPTIONAL] create conda environment
 conda create -n <env_name> python=3.11 or ...
