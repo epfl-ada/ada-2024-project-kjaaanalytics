@@ -12,6 +12,14 @@ Climate is known to affect the culture a lot. In our project we will see if we c
 - jsp si on va pouvoir truver des meaningful conclusions avec l'analyse semantic
 - pas tout le dataset est en anglais
 
+v2 : 
+Climate is known to affect the mood and overall happiness of people. In our project we will do a sentiment analysis of the overall comments and see how it varies across regions. We will also see if we can observe the climate’s influence, via analyzing the semantic used in beers descriptions reviews and the scores associated. To do so, we will:
+•	combine geospatial analysis and spatial analysis to do a geographical description of the semantics used to describe beers.
+•	link it with climatic data to find correlations between the 2 variables by looking at different options: 
+o	evaluate if there is a link between the bad weather and negatively associated comments and overall scores
+o	assess the change in taste preference of users according to the season looking at the overall scores of the different beers.
+
+
 ## Research Questions
 
 ## Proposed additional datasets
