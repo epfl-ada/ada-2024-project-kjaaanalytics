@@ -1,26 +1,20 @@
 
-# A semantic analysis of trends in beer descriptions
+# Mapping of Global Beer Preferences: A Data-Driven Travel Guide for the Beer Enthusiast
 
 ## Abstract
-Climate is known to affect the culture a lot. In our project we will see if we can observe this climatic influence on culture, via analyzing the semantic used in beers descriptions reviews. To do so, we will:
-- combine geospatial analysis and spatial analysis to do a geographical description of the semantic used to describe beers.
-- link it with climatic data to find correlations between the 2 variables.
+In this project, we’ll assist EPFL student Bob in planning a global, beer-centered trip through data-driven insights. Using geospatial and semantic analysis, we’ll map global beer preferences to help Bob make informed choices.
+We’ll analyze beer descriptions by country through natural language processing to uncover unique linguistic patterns and local preferences, enabling Bob to order like a connoisseur. Seasonal variations in beer ratings will be examined to reveal shifts in taste preferences, guiding Bob’s choices based on time of year.
+Additionally, a geospatial analysis of beer ratings by U.S. climate zones will identify popular styles in various climates, optimizing Bob’s selections for different regions. Finally, upon his return to EPFL, we’ll leverage these findings to recommend seasonal beer selections for Satellite, EPFL’s student bar, aligned with Swiss climate patterns. This project combines spatial, temporal, and semantic insights to craft an enriched, personalized travel experience for Bob.
 
-*Problems Julie*:
-- culture is a bit too much of a wide concept, how to you differentiate between 2 different cultures, how far away must they be to be different??
-- c'est un peu réducteur d'associer tout la culture d'un pays à la description de bières
-- jsp si on va pouvoir truver des meaningful conclusions avec l'analyse semantic
-- pas tout le dataset est en anglais
-
-v2 : 
-Climate is known to affect the mood and overall happiness of people. In our project we will do a sentiment analysis of the overall comments and see how it varies across regions. We will also see if we can observe the climate’s influence, via analyzing the semantic used in beers descriptions reviews and the scores associated. To do so, we will:
--	combine geospatial analysis and spatial analysis to do a geographical description of the semantics used to describe beers.
--	link it with climatic data to find correlations between the 2 variables by looking at different options: 
-    -	evaluate if there is a link between the bad weather and negatively associated comments and overall scores
-    - assess the change in taste preference of users according to the season looking at the overall scores of the different beers.
 
 
 ## Research Questions
+
+
+
+
+
+
 
 ## Proposed additional datasets
 
