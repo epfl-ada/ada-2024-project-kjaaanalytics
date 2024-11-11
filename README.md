@@ -9,6 +9,12 @@ Additionally, a geospatial analysis of beer ratings by U.S. climate zones will i
 
 
 ## Research Questions
+In this project, we will answer the following questions : 
+- 	What beers have the best ratings depending on the country, or the beer's style ?
+- What are the words most used in beer descriptions according to the style of the beer and the user’s country ? 
+- 	What type of beers have the best ratings depending on the climate of the user’s location ?
+-	What are the trends in beer preferences according to the seasons ?
+
 
 
 
@@ -31,10 +37,22 @@ Additionally, a geospatial analysis of beer ratings by U.S. climate zones will i
 
 
 ## Methods
+Use
 
 ## Proposed timeline
+22.11.24 : 
+29.11.24 : 
+06.12.24 : 
+13.12.24 :
+20.12.24 : Deadline for the project
+
 
 ## Organization within the team
+Kenza : 
+Alex : 
+Amélie : 
+Andrew
+Julie: 
 
 ## Questions for TAs
 
