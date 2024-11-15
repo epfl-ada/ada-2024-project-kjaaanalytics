@@ -83,18 +83,33 @@ In this project, we will answer the following questions :
 
 
 ### Part 2: Analysis of the text reviews with Natural Language Processing (NLP)
-Preprocess the reviews: Before using the reviews for training, it’s essential to preprocess them to remove noise and standardize the text. Here are the common preprocessing steps:
-Convert to lowercase: Convert all the reviews to lowercase letters. This step ensures that the model treats words with different cases as the same.
-    - __Remove punctuation__: Remove any punctuation marks or special characters from the reviews. Punctuation does not contribute much to sentiment analysis and can be safely removed.
-    - __Remove stopwords__: Stopwords are common words such as “the,” “is,” “and,” etc., which do not carry much sentiment. Remove these words from the reviews as they can introduce noise to the model.
-    - __Tokenization__: Split the sentences into individual words. This allows you to analyze each word separately and build the word count table later.
-    
-- __Split the Reviews by Category__:
-Beers are split into 3 categories : liked, neutral and disliked. 
+Before using reviews for training, it's crucial to preprocess them to remove noise and standardize the text. Below are the common preprocessing steps:
+
+1. **Convert to Lowercase**:  
+   - Convert all reviews to lowercase letters to ensure uniformity and treat words with different cases as the same.
+
+2. **Remove Punctuation**:  
+   - Remove punctuation marks or special characters, as they do not contribute much to sentiment analysis and can be safely excluded.
+
+3. **Remove Stopwords**:  
+   - Eliminate common words like “the,” “is,” “and,” etc., which do not carry significant sentiment and may introduce noise.
+
+4. **Tokenization**:  
+   - Split sentences into individual words, allowing for separate analysis of each word and the creation of a word count table.
+
+---
+
+### Split Reviews by Category
+- Beers are categorized into three groups: **liked**, **neutral**, and **disliked**.
+
+---
+
+### Visualization of Key Words
+- Use **word clouds** and/or **frequency plots** to:  
+  - Identify the most common words and phrases for positive and negative scores in specific countries.  
+  - Display the most frequently used words for certain types of beers.
 
 
-- __Visualization of Key Words__:
-    - Use word clouds and/or frequency plots to show what are the most likely words and phrases used for positive and negative scores in particular countries. Also, the most sued word for certain types of beers will be plotted. 
 
 
 ### Part 3: Geospatial Analysis
