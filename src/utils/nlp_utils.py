@@ -85,7 +85,7 @@ std_score (float): The standard deviation score of the beer accross both website
 Returns:
 str: The category of the beer rating.
 """
-def categorize_rating(avg_score, std_score, num_ratings, significance, liked_threshold, disliked_threshold, polarizing_threshold):
+def categorize_rating(avg_score, std_score, num_ratings, liked_threshold, disliked_threshold, polarizing_threshold, significance=30):
     # Account for NaN and None values
     if pd.isnull(avg_score):
         return 'Unknown'
@@ -119,7 +119,7 @@ def apply_rating(row, liked_threshold, disliked_threshold, polarizing_threshold)
     return categorize_rating(row['avg_score'], row['std_score'], row['num_ratings'], liked_threshold, disliked_threshold, polarizing_threshold)
 
 def apply_per_country_rating(row, significance, liked_threshold, disliked_threshold, polarizing_threshold):
-    return categorize_rating(row['avg_score_per_country'], row['std_score_per_country'], row['num_ratings_per_country'], significance, liked_threshold, disliked_threshold, polarizing_threshold)
+    return categorize_rating(row['avg_score_per_country'], row['std_score_per_country'], row['num_ratings_per_country'], liked_threshold, disliked_threshold, polarizing_threshold, significance)
     
 
 """
