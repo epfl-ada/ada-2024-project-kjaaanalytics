@@ -111,7 +111,7 @@ def animation_belgium(world, clim_data, variable):
     anim = FuncAnimation(fig, update, frames=range(12), repeat=True)
 
     # Save the animation as a GIF file
-    anim.save(f"belgium_{variable}.gif", writer="pillow", fps=3)
+    anim.save(f"output/animations/belgium_{variable}.gif", writer="pillow", fps=3)
 
 
 def interpolate_temp(data, map_gdf):
@@ -329,8 +329,6 @@ def plot_geodf(geo_df):
             Contains geometries of all countries and data about national beer preferences
             
     '''
-
-    # geo_df = geo_df[geo_df["ADMIN"] != "Antarctica"]
 
     fig, ax = plt.subplots(1, 2, figsize=(20, 6))
 

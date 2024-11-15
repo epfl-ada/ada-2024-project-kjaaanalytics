@@ -86,12 +86,16 @@ The directory structure of new project looks like this:
 
 ```
 ├── data                        <- Project data files
+│   ├── img                     <- Input images 
 │
 ├── src                         <- Source code
 │   ├── data                            <- Data directory
 │   ├── models                          <- Model directory
 │   ├── utils                           <- Utility directory
 │   ├── scripts                         <- Shell scripts
+│
+├── output
+│    ├── animations             <- animations 
 │
 ├── tests                       <- Tests of any kind
 │
