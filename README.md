@@ -222,7 +222,7 @@ python
 
 
 ### How to use the library
-Tell us how the code is arranged, any explanations goes here.
+All results are displayed in the jupyter notebook results.ipynb. This notebook calls functions from the folder src/utils. One animation (in the .gif format) can not be displayed properly in the notebook, it is hence additionally saved in the folder output/animation. The folder output will be used in the future to hold more output files.
 
 
 
