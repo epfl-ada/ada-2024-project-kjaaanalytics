@@ -1,4 +1,3 @@
-
 # Mapping of Global Beer Preferences: A Data-Driven Travel Guide for the Beer Enthusiast
 
 ## Abstract
@@ -29,48 +28,180 @@ In this project, we will answer the following questions :
     - *technical specifications*: https://chelsa-climate.org/wp-admin/download-page/CHELSA_tech_specification.pdf
     - *data organisation*: Individual .tiff files for each variable and each month, approx size=14.34 GB 
     - *paper*: Karger D.N., Conrad, O., Böhner, J., Kawohl, T., Kreft, H., Soria-Auza, R.W., Zimmermann, N.E, Linder, H.P., Kessler, M. (2018): Data from: Climatologies at high resolution for the earth’s land surface areas. EnviDat. https://doi.org/10.16904/envidat.228.v2.1
+- Naturalearth dataset: map dataset for GIS softwares. https://www.naturalearthdata.com/
+- *Admin 0* - Countries: map of all countries in the world. https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/
+    - data organisation: one folder. size=4.7 MB
+- *Admin 1* - States, provinces: https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-1-states-provinces/
+    - data organisation: one folder. size=889.9 KB
 
-- WorldClim dataset (use Historical monthly weather data), 2.5 - 10 arcmin resolution (2.5' is approx.20km at the equator), min / max temperature and total precipitation, 1960-2021. 
-    - *data*: https://www.worldclim.org/data/monthlywth.html
-    - *data organisation*:  Individual .tiff files for each variable and each month, approx size=0.89 GB (for the period 1979-2013 2.5' resolution)
-    - *paper*: Fick, S.E. and Hijmans, R.J. (2017), WorldClim 2: new 1-km spatial resolution climate surfaces for global land areas. Int. J. Climatol, 37: 4302-4315. https://doi.org/10.1002/joc.5086
 
 
 ## Methods
-Use
+### Part 1: Dataset Preprocessing and Statistical Analysis
+
+#### **Main Goal**
+- Analyze the data from the "matched" datasets and process the information from various CSV files.
+
+---
+
+#### **Tasks**
+
+1. **Clean Data**:
+   - Rename columns with meaningful names.
+   - Drop insignificant columns that are out of scope for the project.
+   - Check for `NaN` values in the columns across the DataFrames.
+   - Convert date formats into readable units (e.g., seconds).
+
+2. **Explore Data**:
+   - Examine the shape of the DataFrames.
+   - Investigate the types of scores provided.
+   - Compare the data between the two websites: Beer Advocate (BA) and Rate Beer (RB).
+   - Analyze the distribution of scores across beer styles.
+   - Count the number of breweries per country.
+   - Visualize the distribution of the four category scores (appearance, aroma, palate, taste) for each beer style.
+
+3. **Group Data**:
+   - Merge the DataFrames to create a new DataFrame linking beer name, location, rating score, and overall score.
+   - Set a threshold (user-defined) to determine the number of beers scoring above the threshold.
+   - Plot the distribution of scores across selected countries.
+
+---
+
+#### **Exploration Questions**
+- **Impact of Palate on Ratings**:  
+  - How does palate affect the overall rating? Use linear regression or logistic regression to find coefficients.  
+
+- **Statistical Tests**:  
+  - Perform statistical tests (Chi-square, ANOVA, etc.) to determine if preferences significantly differ by season or location.  
+
+- **Top 3 Beers Per Country**:  
+  - Identify the top 3 beers per country for Bob when he visits specific locations.  
+
+- **Seasonal Ratings Distribution**:  
+  - Visualize the distribution of ratings for beers consumed in each season.  
+  - Include a violin plot in the storyline to show the seasonal variation.
+
+
+### Part 2: Analysis of the text reviews with Natural Language Processing (NLP)
+Preprocess the reviews: Before using the reviews for training, it’s essential to preprocess them to remove noise and standardize the text. Here are the common preprocessing steps:
+Convert to lowercase: Convert all the reviews to lowercase letters. This step ensures that the model treats words with different cases as the same.
+    - __Remove punctuation__: Remove any punctuation marks or special characters from the reviews. Punctuation does not contribute much to sentiment analysis and can be safely removed.
+    - __Remove stopwords__: Stopwords are common words such as “the,” “is,” “and,” etc., which do not carry much sentiment. Remove these words from the reviews as they can introduce noise to the model.
+    - __Tokenization__: Split the sentences into individual words. This allows you to analyze each word separately and build the word count table later.
+    
+- __Split the Reviews by Category__:
+Beers are split into 3 categories : liked, neutral and disliked. 
+
+
+- __Visualization of Key Words__:
+    - Use word clouds and/or frequency plots to show what are the most likely words and phrases used for positive and negative scores in particular countries. Also, the most sued word for certain types of beers will be plotted. 
+
+
+### Part 3: Geospatial Analysis
+
+#### **Importation of Datasets**
+- **Chelsea Data**:  
+  - Raster data is read using the `rasterio` library.  
+  - The resolution of the data is downscaled by a factor of 10 using `torch.nn.AvgPool2d`.  
+  - Climatic data is then stored in a `np.array`.  
+
+- **Naturalearth Data**:  
+  - Naturalearth's shapefile is read with the `pd.read_csv()` function, which stores the data in a DataFrame.  
+
+---
+
+#### **Visualization of National Beer Preferences on a Map**
+- **How**:  
+  - Group the DataFrame by `user_country` and merge this DataFrame with the world GeoDataFrame.  
+  - Plot each beer preference by selecting the variable of interest when plotting the map of the GeoDataFrame.  
+- **Extension**:  
+  - This method can be extended and combined with NLP statistics later in the project.  
+
+---
+
+#### **Interpolating Climatic Data Over Country Boundaries**
+- **Why**:  
+  - To transform raster temperature data, we calculate an average over countries or states of the USA.  
+  - This allows comparison of climate and beer preferences.  
+
+- **How**:  
+  - Use `rasterio`'s `geometric_mask` to mask the country of interest.  
+  - Compute statistics for each region using `np.nanmean`.  
+
+---
+
+#### **Comparing Climate Between Switzerland and USA States**
+- **Why**:  
+  - When Bob returns to EPFL, he will recommend beers based on climate similarity.  
+
+- **How**:  
+  - Assume that climate can be represented by monthly averaged temperature and precipitation.  
+  - Create a normalized vector of size `(24,)` to represent the climate in each region.  
+  - Compute the L2-norm of the difference between the Swiss vector and each given region vector.  
+  - Sort USA states based on similarity scores (smaller scores indicate higher similarity).  
+
+---
+
+### Part 4: Storyline Visualization (Putting it All Together)
+
+#### **Plotting the World Map with Beer Preferences by User Country**
+- Display beer preferences according to users' countries.
+
+#### **Radar Chart of Regional Beer Flavors**
+- **Axes**: Represent flavors like "Hoppy," "Malty," "Fruity," "Spicy," etc.  
+- **Regional Variation**: Each region within a country can have its own radar line to show variations.  
+- **Interactive Feature**: Add an interactive element to allow users to choose a country.
+
 
 ## Proposed timeline
-22.11.24 : 
-29.11.24 : 
-06.12.24 : 
-13.12.24 :
-20.12.24 : Deadline for the project
+- **15.11.24**: Deadline M2
+- **22.11.24**: Homework 2
+- **29.11.24**: Homework 2 and Part 1, 2, 3
+- **06.12.24**: Final Data Analysis and Part 4, + Begin Working on the Website
+- **13.12.24**: Finalize the Data Story Webpage, and use interactive visualizations to show the project
+- **20.12.24**: Deadline for the project
+
+
 
 
 ## Organization within the team
-Kenza : 
-Alex : 
-Amélie : 
-Andrew
-Julie: 
+- **Kenza and Alex**:  
+  Work on Part 1 (Dataset Preprocessing and Statistical Analysis) and Part 4 (Storyline Visualization).  
+  - **Kenza**: Focus on the `matched_beer_dataset` i.e., `beers.csv`, `breweries.csv`, `ratings.csv`, and `users_approx.csv`.  
+  - **Alex**: Work on the `ratings_with_text.txt` and `users.csv` from both the RB and BA websites.  
+
+- **Amélie and Andrew**:  
+  Work on Part 2 (Analysis of the Text Reviews with NLP) and Part 4 (Storyline Visualization).
+
+- **Julie**:  
+  Work on Part 3 (Geospatial Analysis) and Part 4 (Storyline Visualization).
+
 
 ## Questions for TAs
 
 
-## Quickstart
 
+
+## Quickstart
 ```bash
 # clone project
 git clone git@github.com:epfl-ada/ada-2024-project-kjaaanalytics.git
 cd ada-2024-project-kjaaanalytics.git
 
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.11 or ...
-conda activate <env_name>
+# [OPTIONAL] create virtual environment environment
+python -m venv <env_name>
+./<env_name>/Scripts/activate
 
 
 # install requirements
 pip install -r pip_requirements.txt
+
+#install Natural Language Tool Kit (NLTK) dependencies
+python
+>> import nltk
+>> nltk.download('stopwords')
+>> nltk.download('punkt_tab')
+
 ```
 
 
