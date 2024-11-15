@@ -100,15 +100,20 @@ Before using reviews for training, it's crucial to preprocess them to remove noi
 ---
 
 ### Split Reviews by Category
-- Beers are categorized into three groups: **liked**, **neutral**, and **disliked**.
-
+- Beers are categorized into 4 groups: **liked**, **neutral**, **disliked**, and **polarizing**.
+- These groups are further broken down by country to show differences in wording used in each country for **liked**, **neutral**, **disliked**, and **polarizing** beers. 
+  - The 4 groups were defined as follows.
+    - **Liked:** 1 standard deviation above the mean 5 star rating.
+    - **Disliked:** 1 standard deviation below the mean 5 star rating.
+    - **Neutal:** Between Liked and Disliked
+    - **Polarizing** Top 10% of rating standard deviations amongst all beers (dynamically set for each country).
 ---
 
 ### Visualization of Key Words
-- Use **word clouds** and/or **frequency plots** to:  
-  - Identify the most common words and phrases for positive and negative scores in specific countries.  
-  - Display the most frequently used words for certain types of beers.
+Use **word clouds** and/or **frequency plots** to identify visually and statistically the most common words and phrases for **liked**, **neutral**, **disliked**, and **polarizing** beers overall and in specific countries. 
 
+The **word clouds** act as a visual representation of the word frequency.
+The **frequency plots** act as a statistical representation of the word frequency. The word clouds are by default not entirely accurate to the word frequency plots as they prioritize fitting words accurately over sizing words exactly to size based on frequency.
 
 
 
