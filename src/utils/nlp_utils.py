@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import *
 import string
+from unidecode import unidecode
 
 
 """
@@ -34,7 +35,10 @@ def preprocess_text(text):
     text = text.translate(str.maketrans(' ', ' ', string.punctuation))
 
     # Convert all text to lowercase 
-    text = text.lower()   
+    text = text.lower()
+
+    # Get rid of special characters
+    text = unidecode(text)
 
     # Tokenize the text
     tokens = word_tokenize(text)                                     
