@@ -95,7 +95,7 @@ def dump_text_file_to_sqlite(file_path: str, table_name:str, BLK_SIZE:int=100_00
 
     conn.close()
 
-def load_dict_like_text_file(file_path, BLK_SIZE=100, MAX_BLK=10000) -> pd.DataFrame:
+def load_dict_like_text_file(file_path, encoding='utf-8', BLK_SIZE=100, MAX_BLK=10000) -> pd.DataFrame:
     """
     Load a text file with key-value pairs into a dictionary.
     
@@ -124,7 +124,7 @@ def load_dict_like_text_file(file_path, BLK_SIZE=100, MAX_BLK=10000) -> pd.DataF
     anim_index = 0
     c = ['|', '/', '-', '\\']
     filename = file_path.split('/')[-1]
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding=encoding) as f:
         df = None
         blk_dict = dict()
         blk_list = list()
