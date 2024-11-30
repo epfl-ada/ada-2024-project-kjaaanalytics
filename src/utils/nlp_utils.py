@@ -40,8 +40,14 @@ def preprocess_text(text):
     # Get rid of special characters
     text = unidecode(text)
 
+    # Remove non standard characters
+    text = re.sub(r'[^\x20-\x7E]', '', text)
+
+    # Remove contractions
+    text = text.replace("â€™", "'").replace("â€œ", '"').replace("â€\x9d", '"')
+
     # Tokenize the text
-    tokens = word_tokenize(text)                                     
+    tokens = word_tokenize(text)                                    
     
     # Initialize a Porter stemmer for word stemming
     stemmer = PorterStemmer()
