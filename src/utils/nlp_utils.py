@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import *
 import string
-from unidecode import unidecode
-
+import unicodedata
+import re
 
 """
 Preprocesses the input text by performing the following steps:
@@ -16,53 +16,65 @@ Preprocesses the input text by performing the following steps:
 2. Removes punctuation.
 3. Converts all text to lowercase.
 4. Tokenizes the text.
-5. Removes stop words and stems the remaining words.
+5. Removes stop words.
 
 Parameters:
 text (str): The input text to be preprocessed.
 
 Returns:
-list: A list of processed tokens after removing stop words and stemming.
+list: A list of processed tokens after removing stop words.
 
-TODO: Convert all spcial characters to only alphabet characters. Ask chatGPT for the regex command.
 """
 def preprocess_text(text):
+    # Ensure text is a Unicode string
+    if isinstance(text, bytes):  # Decode bytes to string if necessary
+        text = text.decode('utf-8', errors='replace')
+    else:
+        text = str(text)  # Ensure text is a string
     
-    # Convert text to string if it is not already
-    text = str(text)
     
-    # Remove punctuation                                                 
-    text = text.translate(str.maketrans(' ', ' ', string.punctuation))
+    # Normalize to remove accents and special characters
+    text = unicodedata.normalize('NFKD', text)
+    text = ''.join(c for c in text if not unicodedata.combining(c))  # Remove combining marks
 
-    # Convert all text to lowercase 
-    text = text.lower()
-
-    # Get rid of special characters
-    text = unidecode(text)
-
-    # Remove non standard characters
+    # Replace common encoding artifacts
+    replacements = {
+        "â€™": "'", "â€œ": '"', "â€\x9d": '"', "â€“": "-", "â€”": "-", 
+        "â€": '"', "â€\x9c": '"', "ã": "a", "â": "a", "©": "e"
+    }
+    for target, replacement in replacements.items():
+        text = text.replace(target, replacement)
+    
+    # Remove any non-printable or non-ASCII characters
     text = re.sub(r'[^\x20-\x7E]', '', text)
-
-    # Remove contractions
-    text = text.replace("â€™", "'").replace("â€œ", '"').replace("â€\x9d", '"')
-
-    # Tokenize the text
-    tokens = word_tokenize(text)                                    
     
-    # Initialize a Porter stemmer for word stemming
-    stemmer = PorterStemmer()
-
-    # Define custom stop words to remove from the text
-    CUSTOM_STOP_WORDS = {"'s",'s','note','notes','almost','beer','lots','quite','maybe','lot','though', 'aroma',
-                  'flavor','palate','overall','appearance',"n't",'taste','head','mouthfeel','bottle','glass',
-                  'little','smell','bit','one','lot','nose','really','much','body','hint','quot','spice','itâ s',
-                  'good','great', 'nice','love','like','isnt','isn','isnâ','isnâ t','isn t','don','donâ','donâ t'}
+    # Remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    
+    #Convert to lowercase
+    text = text.lower()
+    
+    #Tokenize text
+    tokens = word_tokenize(text)
+    
+    #Remove stop words
+    # Define custom stop words
+    CUSTOM_STOP_WORDS = {
+        "'s", "s", "note", "notes", "almost", "beer", "lots", "quite", "maybe", "lot", 
+        "though", "aroma", "flavor", "palate", "overall", "appearance", "n't", "taste", 
+        "head", "mouthfeel", "bottle", "glass", "little", "smell", "bit", "one", "lot", 
+        "nose", "really", "much", "body", "hint", "quot", "spice", "itas", "good", 
+        "great", "nice", "love", "like", "isnt", "isn", "don", "de", "et", "tra", 
+        "peu", "garement", "bouche", "bouteille", "verre", "pours", "bia", "bier", 
+        "biera", "bire", "pracense"
+    }
     stopwords_set = set(stopwords.words('english')).union(CUSTOM_STOP_WORDS)
+    stopwords_set_final = set(stopwords.words('french')).union(stopwords_set)
     
-    # Remove stop words and stem the remaining words
-    # TODO: Fix stemmer. Currently, stemming changes y'to i, which is not desired.
-    # tokens = [stemmer.stem(token) for token in tokens if token not in stopwords_set]
-    tokens = [token for token in tokens if token not in stopwords_set]
+    # Filter out stop words
+    tokens = [token for token in tokens if token not in stopwords_set_final]
+    
+    # Join tokens back into a single string
     filtered_text = ' '.join(tokens)
     return filtered_text
 
