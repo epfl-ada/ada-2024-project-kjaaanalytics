@@ -1,0 +1,50 @@
+/* Navigation buttons container */
+#navigation-buttons {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+/* Individual button styles */
+.nav-button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.nav-button:hover {
+    background-color: #0056b3;
+}
+
+/* Align buttons to the corners */
+.nav-button.left-button {
+    margin-left: 20px;
+}
+
+.nav-button.right-button {
+    margin-right: 20px;
+}
+  
+body {
+    align-content: center;
+    text-align: center;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.content {
+    margin-top: 20px
+}
+  
