@@ -1,0 +1,88 @@
+/* Define the header container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0px;
+    margin-top: 100px
+}
+
+/* Define the timeline container */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Define the timeline step */
+.timeline-step {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+/* Define the icons for each step */
+.timeline-step.car::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("car-icon.png");
+    background-size: cover;
+}
+
+.timeline-step.boat::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("boat-icon.png");
+    background-size: cover;
+}
+
+.timeline-step.plane::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("plane-icon.png");
+    background-size: cover;
+}
+
+.timeline-step.bike::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("bike-icon.png");
+    background-size: cover;
+}
+
+/* Define the active step */
+.timeline-step.active {
+    background-color: #333;
+}
+
+.timeline-step.active::before {
+    background-color: #fff;
+}
+
+/* Define the hover effect */
+.timeline-step:hover {
+    background-color: #999;
+}

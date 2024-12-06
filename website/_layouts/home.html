@@ -4,57 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bob's Beer Journey</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: linear-gradient(to bottom, #f5a623, #d35400);
-            color: white;
-            text-align: center;
-        }
-        header {
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-        p {
-            font-size: 1.2em;
-            margin: 10px 0 30px;
-        }
-        .start-btn {
-            font-size: 1.5em;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2980b9;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .start-btn:hover {
-            background-color: #1f6391;
-            transform: scale(1.05);
-        }
-        .start-btn:active {
-            transform: scale(0.98);
-        }
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.9em;
-            color: #ecf0f1;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ '/assets/css/home_style.css' | relative_url }}">
 </head>
 <body>
     <header>
@@ -62,6 +12,7 @@
         <p>Discover the world of beers, flavors, and insights as Bob travels the globe!</p>
     </header>
     <a href="/storyline/funfact-1" class="start-btn">Start the Journey</a>
+    <img src="../assets/images/asthetic/vw_van_home_clipart.png" alt="Bob's Magic Van">
     <footer>
         &copy; 2024 Beer Insights Team
     </footer>
