@@ -1,4 +1,4 @@
 ---
-layout: endpage
+layout: end
 permalink: /storyline/end
 ---
