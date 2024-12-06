@@ -1,0 +1,21 @@
+body {
+    opacity: 0;
+}
+
+header {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

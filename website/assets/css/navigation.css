@@ -1,0 +1,53 @@
+#nav-container-left {
+    position: fixed;
+    top: 20%;
+    left: 0;
+    height: 60%;
+    display: flex;
+    justify-content: left;
+}
+
+#nav-container-right {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    height: 60%;
+    display: flex;
+    justify-content: right;
+}
+
+/* Individual button styles */
+.nav-button {
+    display: flex;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50px; /* Adjust width as needed */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Button hover effect */
+.nav-button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
+/* Align buttons to the corners */
+.nav-button.left-button {
+    margin-left: 0px;
+}
+
+.nav-button.right-button {
+    margin-right: 0px;
+}
+  
+  

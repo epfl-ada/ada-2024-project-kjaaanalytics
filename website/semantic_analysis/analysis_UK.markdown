@@ -1,5 +1,5 @@
 ---
-layout: story
+layout: semantic
 title: "Semantic Analysis #1"
 subtitle: "Damn, I can't talk. Please help me!"
 previous: /storyline/funfact-1
