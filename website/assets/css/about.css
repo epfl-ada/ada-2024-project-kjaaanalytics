@@ -1,0 +1,70 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #eeb65c, #d17b42);
+    color: white;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+section {
+    margin-bottom: 40px;
+}
+h1 {
+    font-size: 3em;
+    margin-top: 0;
+}
+p {
+    font-size: 1.2em;
+    margin: 10px 0 30px;
+}
+.start-btn {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.start-btn:hover {
+    background-color: #1f6391;
+    transform: scale(1.05);
+}
+.start-btn:active {
+    transform: scale(0.98);
+}
+footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.9em;
+    color: #ecf0f1;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.team-member {
+    flex: 1 1 15%; /* Adjust the percentage to control the width of each team member */
+    box-sizing: border-box;
+    margin: 10px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    max-width: 150px; /* Adjust the max-width to make the images smaller */
+    border-radius: 50%; /* Optional: makes the images circular */
+}
