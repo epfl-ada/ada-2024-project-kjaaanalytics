@@ -1,9 +1,9 @@
 ---
 layout: funfact
-title: "Fun Fact: Beer Popularity"
+title: "Fun Fact #1"
 subtitle: "Exploring the most-loved beers in different countries"
 previous: /
-next: /storyline/analysis-uk
+next: /storyline/analysis-1
 permalink: /storyline/funfact-1/
 ---
 

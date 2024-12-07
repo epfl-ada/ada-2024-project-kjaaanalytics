@@ -38,6 +38,7 @@ p {
 .start-btn:hover {
     background-color: #1f6391;
     transform: scale(1.05);
+    cursor: pointer;
 }
 .start-btn:active {
     transform: scale(0.98);
