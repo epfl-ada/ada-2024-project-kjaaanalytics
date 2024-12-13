@@ -7,7 +7,10 @@ next: /storyline/funfact-2
 permalink:  /storyline/analysis-1
 ---
 
-## UK: Semantic Analysis
-- Common words in beer descriptions: **crisp**, **malty**, **refreshing**.
-- Most popular style: **Pilsner**.
+## Test interactive plot
+
+<div>
+    {% include interactive_beer_mapping.html %} 
+</div>
+
 
