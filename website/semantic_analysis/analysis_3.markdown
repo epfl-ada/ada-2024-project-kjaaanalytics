@@ -11,7 +11,7 @@ Bob liked the friendliness of belgian people so he goes to Canada to test the fr
 
 First, let’s look at the distribution of the ratings for the canadian users.
 
-<img title="a title" alt="plot analysis 3" src="/assets/figures/plot_analysis3.png">
+<img title="a title" alt="plot analysis 3" src="/assets/figures/canada_beer_ratings_distribution.svg">
 
 ## So, which beers are the most polarizing then?
 
