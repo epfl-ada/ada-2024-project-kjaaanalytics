@@ -51,7 +51,7 @@ body.fade-out {
 .timeline-container {
     position: relative; /* Ensure the container is the reference for absolute positioning */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: -20px; /* Adjust for the timeline arrow height */
 }
 
 .background-image-container {
@@ -72,33 +72,32 @@ body.fade-out {
 }
 
 .timeline-container .button:nth-child(2) {
-    /* Boat */
-    left: 20%; /* Position the first button (boat) */
-    top: 0%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.5);
-}
-
-.timeline-container .button:nth-child(3) {
-    /* Plane */
-    left: 40%; /* Position the second button (plane) */
+    /* Train CH --> UK */
+    left: 20%; /* Position the fourth button (train) */
     top: 50%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.2);
 }
 
+.timeline-container .button:nth-child(3) {
+    /* Boat */
+    left: 40%; /* Position the first button (boat) */
+    top: 30%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.7);
+}
+
 .timeline-container .button:nth-child(4) {
-    /* Car */
-    left: 60%; /* Position the third button (car) */
+    /* Plane */
+    left: 60%; /* Position the second button (plane) */
     top: 50%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.38);
+    transform: translate(-50%, -50%) scale(0.25);
 }
 
 .timeline-container .button:nth-child(5) {
-    /* Train */
-    left: 80%; /* Position the fourth button (train) */
+    /* Car */
+    left: 80%; /* Position the third button (car) */
     top: 50%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.4);
+    transform: translate(-50%, -50%) scale(0.3);
 }
-
 
 
 .timeline-container .button:hover img {
@@ -108,8 +107,8 @@ body.fade-out {
 .timeline-container .button.special-button {
     display: inline-block;
     background-color: #000; /* Black color */
-    width: 25px; /* Initial width */
-    height: 25px; /* Initial height */
+    width: 18px; /* Initial width */
+    height: 18px; /* Initial height */
     border-radius: 50%; /* Make it a circle */
     transition: all 0.2s ease;
     position: absolute;
@@ -117,14 +116,15 @@ body.fade-out {
     color: white; /* Text color */
     font-size: 0; /* Hide text initially */
     text-align: center;
-    line-height: 25px; /* Center text vertically */
+    line-height: 20px; /* Center text vertically */
 }
 
 .timeline-container .button.special-button:hover {
     width: 60px; /* Grow in size on hover */
     height: 60px; /* Grow in size on hover */
     font-size: 12px; /* Show text on hover */
-    line-height: 45px; /* Center text vertically */
+    font-weight: bold; /* Bold text */
+    line-height: 25px; /* Center text vertically */
 }
 
 /* Positioning special buttons next to each GIF button */
@@ -152,24 +152,89 @@ body.fade-out {
     text-decoration: none;
 }
 
-/* Adding text inside the special buttons */
 .timeline-container .button.special-button:nth-child(6)::after {
-    content: "Fun Fact\A 1";
+    content: "Analysis\A 1";
     white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .timeline-container .button.special-button:nth-child(7)::after {
-    content: "Fun Fact\A 2";
+    content: "Analysis\A 2";
     white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .timeline-container .button.special-button:nth-child(8)::after {
-    content: "Fun Fact\A 3";
+    content: "Analysis\A 3";
     white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .timeline-container .button.special-button:nth-child(9)::after {
-    content: "Fun Fact\A 4";
+    content: "Analysis\A 4";
     white-space: pre;
-    
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-container .button:nth-child(10) {
+    /* Switzerland Pin*/
+    left: 10%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(11) {
+    /* UK Pin */
+    left: 30%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(12) {
+    /* Belgium Pin */
+    left: 50%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(13) {
+    /* Canada Pin*/
+    left: 70%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(14) {
+    /* USA Pin */
+    left: 90%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(15) {
+    /* Home Pin */
+    left: 3%; /* Position the fourth button (train) */
+    top: 9%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.07);
 }
