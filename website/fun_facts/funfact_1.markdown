@@ -1,21 +1,16 @@
 ---
 layout: analysis
-title: "Fun Fact #1"
-subtitle: "Exploring the most-loved beers in different countries"
+title: "From Switzerland to England"
+subtitle: "If needed quick transition text here!"
 previous: /about
 next: /storyline/analysis-1
 permalink: /storyline/funfact-1/
 ---
 
 
-## Did You Know?
-Amélie made this amazing plot! I love it ❤
+<img title="a title" alt="plot_funfact1" src="/assets/figures/plot_funfact1.png">
 
-<div>
-    {% include interactive_beer_mapping.html %} 
-</div>
 
-g
 ## Explainations
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor nunc id sem dapibus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sed lorem nulla. Integer vehicula justo sed quam faucibus vulputate. Donec at hendrerit augue. Maecenas ullamcorper tellus est, sed tempor ligula malesuada ut. Curabitur augue odio, cursus ac consectetur vitae, sodales in leo. Maecenas vitae tellus vehicula, vestibulum urna ac, lobortis nunc. Curabitur condimentum sit amet neque eget suscipit. Sed luctus tristique mauris ac consequat. Curabitur enim nunc, volutpat in dictum aliquet, dictum quis nulla. Morbi viverra ultrices semper. Morbi in nisi vel ex bibendum eleifend.
