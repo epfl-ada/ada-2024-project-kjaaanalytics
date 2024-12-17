@@ -34,7 +34,7 @@
 .nav-button.right-button {
     margin-right: 20px;
 }
-  
+
 body {
     align-content: center;
     text-align: center;
@@ -45,6 +45,131 @@ body.fade-out {
 }
 
 .content {
-    margin-top: 20px
+    margin-top: 20px;
 }
-  
+
+.timeline-container {
+    position: relative; /* Ensure the container is the reference for absolute positioning */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.background-image-container {
+    width: 100%;
+    overflow: hidden; /* Ensure the container does not overflow */
+}
+
+.background-image-container img {
+    width: 100%; /* Ensure the image takes up the full width */
+    height: auto; /* Maintain aspect ratio */
+    transform: scaleY(0.6); /* Scale down the image in the Y axis */
+}
+
+.timeline-container .button {
+    position: absolute; /* Position the button absolutely within the container */
+    transform: translate(-50%, -50%); /* Center the button */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.timeline-container .button:nth-child(2) {
+    /* Boat */
+    left: 20%; /* Position the first button (boat) */
+    top: 0%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.timeline-container .button:nth-child(3) {
+    /* Plane */
+    left: 40%; /* Position the second button (plane) */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.2);
+}
+
+.timeline-container .button:nth-child(4) {
+    /* Car */
+    left: 60%; /* Position the third button (car) */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.38);
+}
+
+.timeline-container .button:nth-child(5) {
+    /* Train */
+    left: 80%; /* Position the fourth button (train) */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.4);
+}
+
+
+
+.timeline-container .button:hover img {
+    transform: rotate(10deg); /* Rotate slightly */
+}
+
+.timeline-container .button.special-button {
+    display: inline-block;
+    background-color: #000; /* Black color */
+    width: 25px; /* Initial width */
+    height: 25px; /* Initial height */
+    border-radius: 50%; /* Make it a circle */
+    transition: all 0.2s ease;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white; /* Text color */
+    font-size: 0; /* Hide text initially */
+    text-align: center;
+    line-height: 25px; /* Center text vertically */
+}
+
+.timeline-container .button.special-button:hover {
+    width: 60px; /* Grow in size on hover */
+    height: 60px; /* Grow in size on hover */
+    font-size: 12px; /* Show text on hover */
+    line-height: 45px; /* Center text vertically */
+}
+
+/* Positioning special buttons next to each GIF button */
+.timeline-container .button.special-button:nth-child(6) {
+    left: 30%; /* Position next to the first button (boat) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(7) {
+    left: 50%; /* Position next to the second button (plane) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(8) {
+    left: 70%; /* Position next to the third button (car) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(9) {
+    left: 90%; /* Position next to the fourth button (train) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+/* Adding text inside the special buttons */
+.timeline-container .button.special-button:nth-child(6)::after {
+    content: "Fun Fact\A 1";
+    white-space: pre;
+}
+
+.timeline-container .button.special-button:nth-child(7)::after {
+    content: "Fun Fact\A 2";
+    white-space: pre;
+}
+
+.timeline-container .button.special-button:nth-child(8)::after {
+    content: "Fun Fact\A 3";
+    white-space: pre;
+}
+
+.timeline-container .button.special-button:nth-child(9)::after {
+    content: "Fun Fact\A 4";
+    white-space: pre;
+    
+}

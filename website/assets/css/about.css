@@ -6,7 +6,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background: linear-gradient(to bottom, #eeb65c, #d17b42);
     color: white;
     text-align: center;
@@ -15,6 +14,11 @@ body {
 }
 section {
     margin-bottom: 40px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
 }
 h1 {
     font-size: 3em;
@@ -42,11 +46,13 @@ p {
 .start-btn:active {
     transform: scale(0.98);
 }
-footer {
-    position: absolute;
-    bottom: 20px;
-    font-size: 0.9em;
-    color: #ecf0f1;
+.footer {
+    position: bottom;
+    bottom: 0;
+    left: 0; /* Add left: 0 to make it span the entire width */
+    width: 200%; /* Make it span the entire width */
+    height: 50px; /* Define the height as desired */
+    background-color: #ebb445; /* Set the background color */
 }
 
 .team-container {
