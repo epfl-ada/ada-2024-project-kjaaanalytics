@@ -1,99 +1,6 @@
 import pandas as pd
 import numpy as np
 import time
-import sqlite3
-
-def dump_text_file_to_sqlite(file_path: str, table_name:str, BLK_SIZE:int=100_000, DB_RELATIVE_PATH:str='../local_data/'):
-    """ Load big text file to an SQLite DB (for processing data)
-    (Inspired from chatGPT code proposition)
-    Args:
-        file_path (str): Path of the text file to read (.txt)
-        BLK_SIZE (int, optional): Block size for memory efficiency. Defaults to 100_000.
-    """
-    # Step 1: Connect to SQLite database (or create it)
-    conn = sqlite3.connect(DB_RELATIVE_PATH + "all_reviews.db")
-    cursor = conn.cursor()
-
-    # Check if the table exists
-    cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'")
-    table_exists = cursor.fetchone() is not None
-
-    #  Drop the table if it exists
-    if table_exists:
-        print(f"DROPPING TABLE {table_name} because already existing in DB!")
-        cursor.execute(f"DROP TABLE {table_name}")
-
-
-    t_last = 0
-    DISPLAY_DELAY = 0.3
-    anim_index = 0
-    c = ['|', '/', '-', '\\']
-    filename = file_path.split('/')[-1]
-    cols = dict()
-    with open(file_path, "r") as f:
-        rows = []
-        r = [0]
-        # Extract columns (key1: val1) until \n
-        # Load first data chunk to extract table structure (columns) and data types
-        line = f.readline()
-        while line != '\n':
-            values = line.strip().split(':')
-            # Try to sort for primitive datatypes
-            v = ''.join(values[1:]).strip()
-            try:
-                int(v)
-                t='INTEGER'
-            except ValueError:
-                try:
-                    float(v)
-                    t='REAL'
-                except ValueError:
-                    t='TEXT'
-            cols[values[0]] = t
-            r.append(v)
-            line = f.readline()
-        # Create table in database
-        querry = 'id INTEGER PRIMARY KEY, ' + ', '.join([f"{c} {t}" for c,t in cols.items()])
-        cursor.execute(f"CREATE TABLE IF NOT EXISTS {table_name} ({querry})")
-        count = 1
-        rows.append(r)
-
-        r = [count]
-        line = f.readline()
-        while line != '':
-            if line == '\n':
-                rows.append(tuple(r))
-                count += 1
-                r = [count]
-            else:
-                values = line.strip().split(':')
-                r.append(''.join(values[1:]).strip())
-
-            if count % BLK_SIZE == 0:
-                print(" "*100, end='\r')
-                print("***WRITING DATA BLK TO DB*** ", end='\r', flush=True)
-                querry = 'id, ' + ', '.join(cols.keys())
-                querry2 = ', '.join(['?']*(len(cols.keys())+1))
-                cursor.executemany(f"INSERT INTO {table_name} ({querry}) VALUES ({querry2})", rows)
-                conn.commit()
-                rows.clear()
-            line = f.readline()
-
-            if time.time() - t_last > DISPLAY_DELAY:
-                t_last = time.time()
-                print('LOADING "{0}" {1}  --> {2} rows created!'.format(filename, c[anim_index % len(c)], count), end='\r', flush=True)
-                anim_index += 1                
-
-        # Insert any remaining rows
-        if rows:
-            querry = 'id, ' + ', '.join(cols.keys())
-            querry2 = ', '.join(['?']*(len(cols.keys())+1))
-            cursor.executemany(f"INSERT INTO {table_name} ({querry}) VALUES ({querry2})", rows)
-            conn.commit()
-        print(" "*100, end='\r')
-        print("DONE! Created {0} rows".format(count))
-
-    conn.close()
 
 def load_dict_like_text_file(file_path, encoding='utf-8', BLK_SIZE=100, MAX_BLK=10000) -> pd.DataFrame:
     """
@@ -156,6 +63,151 @@ def load_dict_like_text_file(file_path, encoding='utf-8', BLK_SIZE=100, MAX_BLK=
     print("                                                          ", end='\r')
     print("LOADED '{0}'".format(filename))
     return df
+
+def merge_rb_ba_datasets(rb_ratings: pd.DataFrame, rb_users: pd.DataFrame, 
+                         ba_ratings: pd.DataFrame, ba_users: pd.DataFrame, 
+                         breweries: pd.DataFrame ) -> pd.DataFrame:
+    """ Used to create the merged dataframe containing all the important data from
+        both websites.
+
+    Args:
+        rb_ratings (pd.DataFrame): ratings from RateBeer
+        rb_users (pd.DataFrame): users from RateBeer
+        ba_ratings (pd.DataFrame): ratings from BeerAdvocate
+        ba_users (pd.DataFrame): users from BeerAdvocate
+        breweries (pd.DataFrame): breweries from both websites
+
+    Returns:
+        pd.DataFrame: merged dataframe
+    """
+    # combine users and ratings
+    print("[INFO] :: Combining users and ratings from both websites...", end='', flush=True)
+    rb_ratings.loc[:, 'user_id'] = rb_ratings.loc[:, 'user_id'].astype(int)
+    rb_ratings_no_username = rb_ratings.drop(columns=['user_name'])
+    ba_ratings.loc[:, 'user_id'] = ba_ratings.loc[:, 'user_id'].astype(str)
+    ba_ratings_no_username = ba_ratings.drop(columns=['user_name'])
+    ba_users.loc[:, 'user_id'] = ba_users.loc[:, 'user_id'].astype(str)
+    rb_user_ratings = rb_ratings_no_username.join(other=rb_users.set_index('user_id'), on='user_id', how='left')
+    ba_user_ratings = ba_ratings_no_username.join(other=ba_users.set_index('user_id'), on='user_id', how='left')
+    rb_user_ratings.rename(columns={'location': 'location_user'}, inplace=True)
+    ba_user_ratings.rename(columns={'location': 'location_user'}, inplace=True)
+    print("OK", flush=True)
+
+    # combine breweries and ratings
+    print("[INFO] :: Combining breweries and ratings from both websites...", end='', flush=True)
+    rb_breweries = breweries['rb']
+    rb_breweries.loc[:, 'id'] = rb_breweries.loc[:, 'id'].astype(int)
+    rb_user_ratings.loc[:, 'brewery_id'] = rb_user_ratings.loc[:, 'brewery_id'].astype(int)
+    ba_breweries = breweries['ba']
+    ba_breweries.loc[:,'id'] = ba_breweries.loc[:,'id'].astype(int)
+    ba_user_ratings.loc[:,'brewery_id'] = ba_user_ratings.loc[:,'brewery_id'].astype(int)
+    rb_combined_ratings = rb_user_ratings.join(other=rb_breweries.set_index('id'), on='brewery_id', how='left')
+    ba_combined_ratings = ba_user_ratings.join(other=ba_breweries.set_index('id'), on='brewery_id', how='left')
+    rb_combined_ratings.rename(columns={'location': 'location_brewery'}, inplace=True)
+    ba_combined_ratings.rename(columns={'location': 'location_brewery'}, inplace=True)
+    print("OK", flush=True)
+
+    # Merge rb and ba with text reviews in a single dataframe
+    print("[INFO] :: Merging all datasets together...", end='', flush=True)
+    rb_combined_ratings['source'] = 'rb'
+    ba_combined_ratings['source'] = 'ba'
+    print("OK", flush=True)
+
+    return pd.concat([ba_combined_ratings, rb_combined_ratings], axis=0)
+
+def remove_duplicate_reviews(df_ratings: pd.DataFrame, matched_ratings: pd.DataFrame) -> pd.DataFrame:
+    """ Remove duplicate reviews of same user on both website (based on matched dataset)
+
+    Args:
+        df_ratings (pd.DataFrame): the ratings dataframe containing all ratings from both website
+        matched_ratings (pd.DataFrame): matched dataframe containing the matched review from both websites
+
+    Returns:
+        pd.DataFrame: filtered dataframe by keeping only relevant reviews
+    """
+    m_ratings_ba = matched_ratings['ba']
+    df_text_ratings_no_duplicates = df_ratings.reset_index()
+    # Making sure user_id is of type str
+    m_ratings_ba.loc[:,'user_id'] = m_ratings_ba.loc[:,'user_id'].astype("string")
+    m_ratings_ba.loc[:,'beer_id'] = m_ratings_ba.loc[:,'beer_id'].astype(int)
+    df_text_ratings_no_duplicates.loc[:,'user_id'] = df_text_ratings_no_duplicates.loc[:,'user_id'].astype("string")
+    df_text_ratings_no_duplicates.loc[:,'beer_id'] = df_text_ratings_no_duplicates.loc[:,'beer_id'].astype(int)
+
+    count_before = df_text_ratings_no_duplicates.index.size
+    print("Total # of combined ratings before filtering: {0}".format(count_before))
+    print("Total # of duplicate ratings to remove: {0}".format(m_ratings_ba.index.size))
+
+    print("[INFO] :: Dropping duplicates...", end='', flush=True)
+    idx_to_drop = df_text_ratings_no_duplicates.join(m_ratings_ba.set_index(['user_id', 'beer_id']), on=['user_id','beer_id'], lsuffix='_left', how='inner').index
+    df_text_ratings_no_duplicates.drop(index=idx_to_drop, inplace=True)
+    print("OK", flush=True)
+
+    count_after = df_text_ratings_no_duplicates.index.size
+    print("Total # of combined ratings after filtering: {0} --> Difference: {1}".format(count_after, count_before-count_after))
+    return df_text_ratings_no_duplicates
+
+def clean_NA_empty_values(df_dirty: pd.DataFrame) -> pd.DataFrame:
+    """ Simple clean for NA values for users and empty text reviews
+
+    Args:
+        df_dirty (pd.DataFrame): the dataframe to be cleaned
+
+    Returns:
+        pd.DataFrame: the cleaned dataframe
+    """
+    # Delete the only line with empty text
+    print("[INFO] :: Cleaning empty text review...", end='', flush=True)
+    df_clean = df_dirty.drop(df_dirty[df_dirty.text.apply(lambda x: len(x) < 1)].index)
+    print("OK", flush=True)
+
+    # Drop NA
+
+    # Since brewery location is not NA for the NA user, maybe it is a good approximation to use it as the user's location
+    print("[INFO] :: Merging NaN users' location with brewery location...",  end='', flush=True)
+    usr_loc_na_idx = df_clean.location_user.isna()
+    df_clean.loc[usr_loc_na_idx, 'location_user'] = df_clean.loc[usr_loc_na_idx, 'location_brewery'] 
+    print("OK", flush=True)
+
+    return df_clean
+
+def cast_columns_to_right_type(df: pd.DataFrame) -> pd.DataFrame:
+    """ Ensure the types of the columns for the ratings are the right ones (prevent later issues)
+
+    Args:
+        df (pd.DataFrame): dataframe to be casted
+
+    Returns:
+        pd.DataFrame: the new dataframe with right types
+    """
+    df_out = df.copy()
+    print("[INFO] :: Casting columns to right datatype...", end='', flush=True)
+    # Casting to 'human readable' dates
+    df_out['date'] = df['date'].astype(int)
+    df_out['date'] = pd.to_datetime(df_out['date'], unit='s')
+
+    # string columns
+    cols = ['beer_name', 'brewery_name', 'style', 'user_name', 'location_user', 'location_brewery', 'text', 'source']
+    for c in cols:
+        df_out[c] = df_out[c].astype(str)
+    # float columns
+    df_out['abv'] = df_out['abv'].astype(float)
+    print("OK", flush=True)
+    
+    return df_out
+
+def extract_states_from_country(df: pd.DataFrame) -> pd.DataFrame:
+    df_out = df.copy()
+    print("[INFO] :: Extracting country for users...", end='', flush=True)
+    df_out['country_user'] = df_out['location_user'].apply(lambda x: x.split(',')[0] if len(x.split(',')) > 0 else x)
+    print("OK\n[INFO] :: Extracting country for brewery locations...", end='', flush=True)
+    df_out['country_brewery'] = df_out['location_brewery'].apply(lambda x: x.split(',')[0] if len(x.split(',')) > 0 else x)
+    print("OK\n[INFO] :: Extracting states for users...", end='', flush=True)
+    df_out['state_user'] = df_out['location_user'].apply(lambda x: ''.join(x.split(',')[1:]) if len(x.split(',')) > 0 else None)
+    print("OK\n[INFO] :: Extracting states for brewery locations...", end='', flush=True)
+    df_out['state_brewery'] = df_out['location_brewery'].apply(lambda x: ''.join(x.split(',')[1:]) if len(x.split(',')) > 0 else None)
+    print("OK", flush=True)
+
+    return df_out
 
 
 def get_beer_style_mapping() -> map:

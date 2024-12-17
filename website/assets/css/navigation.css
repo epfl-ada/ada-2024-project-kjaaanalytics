@@ -1,0 +1,65 @@
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin: 20px 0px;
+    flex-shrink: 0;
+    min-height: 150px;
+}
+
+/* Individual button styles */
+.nav-button {
+    display: flex;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Adjust width as needed */
+    height: 20px;
+    align-items: center;
+}
+
+/* Button hover effect */
+.nav-button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
+/* Align buttons to the corners */
+.nav-button.left-button {
+    text-align: center;
+    justify-content: left;
+}
+
+.nav-button.right-button {
+    text-align: center;
+    justify-content: right;
+}
+
+#nav-button-icon-right {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+#nav-button-icon-left {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+
+  
+  

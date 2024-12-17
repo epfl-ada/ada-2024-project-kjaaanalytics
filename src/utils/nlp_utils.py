@@ -9,6 +9,7 @@ from nltk.stem.porter import *
 import string
 import unicodedata
 import re
+from PIL import Image 
 
 """
 Preprocesses the input text by performing the following steps:
@@ -89,12 +90,14 @@ Returns:
 None -- displays the word cloud plot.
 """
 def plot_wordcloud(text):
+    beer_mask = np.array(Image.open('data/img/test_2.png'))
     text_single_string = ' '.join(text)
     # Create and generate a word cloud image
-    wordcloud = WordCloud(width=800, height=400, background_color='white',colormap='viridis').generate(text_single_string)
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
+    wordcloud = WordCloud(width=800, height=400, background_color='white',colormap='viridis',mask=beer_mask, contour_width =2).generate(text_single_string)
+    #plt.figure(figsize=(10, 5))
+    #plt.imshow(wordcloud, interpolation='bilinear')
+    #plt.axis('off')
+    return wordcloud.to_array()
 
 
 """

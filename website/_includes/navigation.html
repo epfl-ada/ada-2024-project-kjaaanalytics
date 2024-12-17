@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/assets/css/navigation.css">
+
+<!-- Navigation Section -->
+ <div class="nav-container">
+    <div id="nav-container-left">
+        {% if page.previous %}
+        <a class="nav-button left-button" onclick="transitionToPage('{{page.previous | relative_url}}')">
+            <span id="nav-button-icon-left"> ← </span> {{ page.previous | split: "/" | last | replace: "-", " " }} 
+        </a>
+        {% endif %}
+    </div>
+
+    <div id="nav-container-right">
+        {% if page.next %}
+        <a class="nav-button right-button"  onclick="transitionToPage('{{page.next | relative_url}}')">
+            {{ page.next | split: "/" | last | replace: "-", " " }} <span id="nav-button-icon-right"> → </span>
+        </a>
+        {% endif %}
+    </div>
+</div>
