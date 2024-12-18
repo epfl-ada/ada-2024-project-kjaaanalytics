@@ -4,6 +4,7 @@ import numpy as np
 import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
 
 
 #### Fun fact #1 - Bob travels from Switzerland to UK (using rating score column)
