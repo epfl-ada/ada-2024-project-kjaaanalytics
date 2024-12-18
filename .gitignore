@@ -163,3 +163,11 @@ cython_debug/
 
 local_data/
 tests/ALEX_Milestone2_ALL.ipynb
+
+# Website
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
