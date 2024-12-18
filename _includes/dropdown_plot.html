@@ -9,11 +9,11 @@
         {% endfor %}
     </select>
     <div id="image-container" style="margin: 20px 20px;">
-        <img id="wordcloud-image" src="/assets/figures/{{include.content}}/{{figure_files[0]}}" alt="Word Cloud" style="max-width: 100%; height: auto; visibility: visible;">
+        <img id="wordcloud-image" src="{{site.baseurl}}/assets/figures/{{include.content}}/{{figure_files[0]}}" alt="Word Cloud" style="max-width: 100%; height: auto; visibility: visible;">
         <div id="loading-spinner" style="position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%) scale(0.5); display: none;">
-            <img src="/assets/icons/loading-spinner.webp" alt="Loading...">
+            <img src="{{'/assets/icons/loading-spinner.webp' | relative_url}}" alt="Loading...">
         </div>
     </div>
 </div>
 
-<script src="/assets/scripts/plot_handling.js"></script>
+<script src="{{'/assets/scripts/plot_handling.js' | relative_url}}"></script>
