@@ -1,0 +1,240 @@
+/* Navigation buttons container */
+#navigation-buttons {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+/* Individual button styles */
+.nav-button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.nav-button:hover {
+    background-color: #0056b3;
+}
+
+/* Align buttons to the corners */
+.nav-button.left-button {
+    margin-left: 20px;
+}
+
+.nav-button.right-button {
+    margin-right: 20px;
+}
+
+body {
+    align-content: center;
+    text-align: center;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.timeline-container {
+    position: relative; /* Ensure the container is the reference for absolute positioning */
+    text-align: center;
+    margin-bottom: -20px; /* Adjust for the timeline arrow height */
+}
+
+.background-image-container {
+    width: 100%;
+    overflow: hidden; /* Ensure the container does not overflow */
+}
+
+.background-image-container img {
+    width: 100%; /* Ensure the image takes up the full width */
+    height: auto; /* Maintain aspect ratio */
+    transform: scaleY(0.6); /* Scale down the image in the Y axis */
+}
+
+.timeline-container .button {
+    position: absolute; /* Position the button absolutely within the container */
+    transform: translate(-50%, -50%); /* Center the button */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.timeline-container .button:nth-child(2) {
+    /* Train CH --> UK */
+    left: 20%; /* Position the fourth button (train) */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.2);
+}
+
+.timeline-container .button:nth-child(3) {
+    /* Boat */
+    left: 40%; /* Position the first button (boat) */
+    top: 30%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.7);
+}
+
+.timeline-container .button:nth-child(4) {
+    /* Plane */
+    left: 60%; /* Position the second button (plane) */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.25);
+}
+
+.timeline-container .button:nth-child(5) {
+    /* Car */
+    left: 80%; /* Position the third button (car) */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.3);
+}
+
+
+.timeline-container .button:hover img {
+    transform: rotate(10deg); /* Rotate slightly */
+}
+
+.timeline-container .button.special-button {
+    display: inline-block;
+    background-color: #000; /* Black color */
+    width: 18px; /* Initial width */
+    height: 18px; /* Initial height */
+    border-radius: 50%; /* Make it a circle */
+    transition: all 0.2s ease;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white; /* Text color */
+    font-size: 0; /* Hide text initially */
+    text-align: center;
+    line-height: 20px; /* Center text vertically */
+}
+
+.timeline-container .button.special-button:hover {
+    width: 60px; /* Grow in size on hover */
+    height: 60px; /* Grow in size on hover */
+    font-size: 12px; /* Show text on hover */
+    font-weight: bold; /* Bold text */
+    line-height: 25px; /* Center text vertically */
+}
+
+/* Positioning special buttons next to each GIF button */
+.timeline-container .button.special-button:nth-child(6) {
+    left: 30%; /* Position next to the first button (boat) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(7) {
+    left: 50%; /* Position next to the second button (plane) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(8) {
+    left: 70%; /* Position next to the third button (car) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(9) {
+    left: 90%; /* Position next to the fourth button (train) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
+.timeline-container .button.special-button:nth-child(6)::after {
+    content: "Analysis\A 1";
+    white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-container .button.special-button:nth-child(7)::after {
+    content: "Analysis\A 2";
+    white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-container .button.special-button:nth-child(8)::after {
+    content: "Analysis\A 3";
+    white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-container .button.special-button:nth-child(9)::after {
+    content: "Analysis\A 4";
+    white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-container .button:nth-child(10) {
+    /* Switzerland Pin*/
+    left: 10%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(11) {
+    /* UK Pin */
+    left: 30%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(12) {
+    /* Belgium Pin */
+    left: 50%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(13) {
+    /* Canada Pin*/
+    left: 70%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(14) {
+    /* USA Pin */
+    left: 90%; /* Position the fourth button (train) */
+    top: 4%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(15) {
+    /* Home Pin */
+    left: 3%; /* Position the fourth button (train) */
+    top: 9%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.07);
+}
