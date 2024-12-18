@@ -5,12 +5,12 @@
 
     {% assign active_class = page.permalink | split: "/" | last %}
 
-    {% assign pages = "funfact-1, analysis-1, funfact-2, analysis-2, funfact-3, analysis-3, funfact-4, analysis-4" | split: ", " %}
-    {% assign item_names = "Fun Fact #1, Analysis #1, Fun Fact #2, Analysis #2, Fun Fact #3, Analysis #3, Fun Fact #4, Analysis #4" | split: ", " %}
+    {% assign pages = "about, funfact-1, analysis-1, funfact-2, analysis-2, funfact-3, analysis-3, funfact-4, analysis-4, conclusion" | split: ", " %}
+    {% assign item_names = "About, Fun Fact #1, Analysis #1, Fun Fact #2, Analysis #2, Fun Fact #3, Analysis #3, Fun Fact #4, Analysis #4, Conclusion" | split: ", " %}
 
     <ul class="nav-list">
 
-        {% for i in (0..7) %}
+        {% for i in (0..9) %}
             {% if active_class == pages[i] %}
                 <li class="active">
                     <a onclick="transitionToPage('/storyline/{{ pages[i] }}')"><span class="icon">🍻</span> {{ item_names[i] }}</a>

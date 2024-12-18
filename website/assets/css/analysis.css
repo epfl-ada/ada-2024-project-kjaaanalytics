@@ -46,3 +46,21 @@ header {
     flex-shrink: 0;
     height: 100%;
 }
+
+/* For dropdown plots if any */
+#beer-style-select {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#wordcloud-image {
+    border: 2px solid #2980b9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+#wordcloud-image:hover {
+    transform: scale(1.05);
+}

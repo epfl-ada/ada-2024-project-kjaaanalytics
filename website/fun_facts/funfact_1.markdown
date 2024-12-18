@@ -2,7 +2,7 @@
 layout: analysis
 title: "From Switzerland to England"
 subtitle: "If needed quick transition text here!"
-previous: /about
+previous: /storyline/about
 next: /storyline/analysis-1
 permalink: /storyline/funfact-1/
 ---

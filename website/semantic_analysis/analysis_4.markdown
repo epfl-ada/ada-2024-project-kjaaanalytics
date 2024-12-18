@@ -11,7 +11,12 @@ After leaving the freezing country of Canada, Bob arrives in Arizona. … .We he
 
 First, we cluster each loacalization of the us based on climate similarities to find XXX *typical climates*. Then, each states is assigned a *typical climate* based on majority voting
 
-<img title="a title" alt="plot analysis 4" src="/assets/figures/plot_analysis4.png">
+## Did You Know?
+Amélie made this amazing plot! I love it ❤
+
+<div>
+    {% include interactive_beer_mapping.html %} 
+</div>
 
 ## Explainations
 

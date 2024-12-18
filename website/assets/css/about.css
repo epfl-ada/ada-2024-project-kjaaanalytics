@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 20;
@@ -21,8 +21,8 @@ h1 {
 p {
     font-size: 1.2em;
     margin: 10px 0 30px;
-}
-.start-btn {
+} */
+/* .start-btn {
     font-size: 1.5em;
     padding: 15px 30px;
     border: none;
@@ -40,7 +40,7 @@ p {
 }
 .start-btn:active {
     transform: scale(0.98);
-}
+} */
 footer {
     position: absolute;
     bottom: 20px;
@@ -55,6 +55,7 @@ footer {
     background-color: #ddd;
     width: 50%;
     margin: 30px 0; /* Adjust the margin as needed */
+    align-self: center;
 }
 
 /* Team container styles */
@@ -63,6 +64,7 @@ footer {
     flex-wrap: wrap;
     width: 90%;
     justify-content: space-between;
+    align-items: center;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
@@ -72,6 +74,7 @@ footer {
 /* Individual team member styles */
 .team-member {
     flex: 1 1 15%; /* Adjust the percentage to control the width of each team member */
+    min-width: fit-content;
     box-sizing: border-box;
     margin: 20px;
     padding: 20px;
