@@ -131,7 +131,9 @@ def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_f
     )
 
     # Displaying the plot
-    fig.show()
+    #fig.show()
+
+    return fig
 
 ####  Fun fact #2 - Bob travels from UK to Belgium
 
@@ -243,7 +245,9 @@ def plot_funfact_2(rating_by_year_beer_filtered):
     )
 
     # Displaying the plot
-    fig.show()
+    #fig.show()
+
+    return fig
 
 # Defining a function to print the best beer names in winter and summer seasons (funfact2)
 def best_beer_by_season(belgium_beers):
@@ -424,7 +428,9 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
     )
 
     # Displaying the figure
-    fig.show()
+    #fig.show()
+
+    return fig
 
 #### Fun fact #4 - Bob travels from Canada to the USA
 
@@ -497,8 +503,10 @@ def plot_funfact_4(state_avg_ratings):
         width=1000  
     )
 
-    # Displaying the heatmap
-    fig.show()
+    # Displaying the figure
+    #fig.show()
+
+    return fig
 
 # Defining a function to prepare the dataframe used to plot the most popular brewery per state (funfact4_v2)  
 def df_funfact_4_v2_brewery(us_data):
@@ -587,8 +595,10 @@ def plot_funfact_4_v2_brewery(most_popular_brewery):
                     '<b>Count:</b> %{y}<extra></extra>'
     )
 
-    # Displaying the bar chart
-    fig.show()
+    # Displaying the figure
+    #fig.show()
+
+    return fig
 
 # Defining a function to prepare the dataframe used to plot the most popular beer style per state (funfact4_v2) 
 def df_funfact_4_v2_beer_style(us_data):
@@ -679,4 +689,45 @@ def plot_funfact_4_v2_beer_style(most_popular_style):
     )
 
     # Displaying the figure
-    fig.show()
+    #fig.show()
+
+    return fig
+
+# Defining a function to save figures as html format
+def save_plot_as_html(fig, save_path):
+    """
+    Save a Plotly figure as an HTML file.
+
+    Parameters:
+    ----------
+    fig : plotly.graph_objects.Figure
+        The Plotly figure to save.
+    save_path : str
+        The file path where the HTML file will be saved.
+
+    Returns:
+    -------
+    None
+        The function saves the HTML file and does not return any value.
+    """
+    pio.write_html(fig, save_path)
+
+# Defining a function to save figures as svg format
+def save_plot_as_svg(fig, save_path):
+    """
+    Save a Plotly figure as an SVG file.
+
+    Parameters:
+    ----------
+    fig : plotly.graph_objects.Figure
+        The Plotly figure to save.
+    save_path : str
+        The file path where the SVG file will be saved.
+    
+    Returns:
+    -------
+    None
+        The function saves the SVG file and does not return any value.
+    """
+
+    pio.write_image(fig, save_path, format='svg')
