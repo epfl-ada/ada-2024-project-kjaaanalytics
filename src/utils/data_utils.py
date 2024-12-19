@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import time
 
+
 def load_dict_like_text_file(file_path, encoding='utf-8', BLK_SIZE=100, MAX_BLK=10000) -> pd.DataFrame:
     """
     Load a text file with key-value pairs into a dictionary.
