@@ -24,6 +24,7 @@ The winners of the most polarizing beers according to Canadians are:
 - Vitale
 
 <img alt="Top 5 Beers in Canada" src="{{'/assets/figures/Top_5_Polarizing_Beers_in_Canada.svg' | relative_url}}" width="650">
+</div>
 
 Bob realizes that the beer attributes vary significantly, which likely contributes to their polarizing nature. For example, taste, appearance and aroma appear to be the most varied attributes among the beers. This makes sense as these elements are highly subjective and prone to divisive opinions. However, most of the beers have similar scores for palate, suggesting that this attribute contributes less to their polarizing ratings. It might indicate that drinkers generally agree on palate but diverge on other sensory attributes.
 
