@@ -11,7 +11,9 @@ Next, he’ll take a closer look at the distribution of ratings from Canadian us
 
 To help Bob understand the distribution of beers, we plot it with the threshold that we set for the liked and disliked beers which are 1 sigma above and 1 sigma below the mean beer rating. We also set a polarizing threshold, that is defined as a standard deviation of ratings in the 90th percentile of all beer rating standard deviations. This will allow Bob to better understand how polarizing beers are rated!
 
+<div style="align-self: center">
 <img alt="Polarizing analysis plot" src="{{'/assets/figures/canada_beer_distributions.svg' | relative_url}}" width="1000">
+</div>
 
 This distribution highlights that Canadian beer drinkers seem to have a generally positive perception of the beers they rate, with a strong emphasis on average-to-good ratings, and only a minority of disliked options.  
 
@@ -23,6 +25,7 @@ The winners of the most polarizing beers according to Canadians are:
 - Minhas Swiss Amber
 - Vitale
 
+<div style="align-self: center">
 <img alt="Top 5 Beers in Canada" src="{{'/assets/figures/Top_5_Polarizing_Beers_in_Canada.svg' | relative_url}}" width="650">
 </div>
 
