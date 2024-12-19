@@ -1,7 +1,7 @@
 ---
 layout: conclusion
-title: Bob's Beer Journey Concludes
-subtitle: Bob's adventure has ended, but the insights don't stop here! Explore a special beer proposition for EPFL's Satellite bar.
+title: Conclusion - back to Satellite 🛰️
+subtitle: ""
 permalink: /storyline/conclusion
 previous: /storyline/climate-related-analysis
 ---
@@ -9,5 +9,6 @@ previous: /storyline/climate-related-analysis
 WRITE CONCLUSION AND RECOMMENDATION FOR SATELITTE
 
 
-
+<div style="align-self: center">
 <img title="" alt="plot analysis 2" src="{{ '/assets/figures/switzerland_plot.svg' | relative_url}}">
+</div>

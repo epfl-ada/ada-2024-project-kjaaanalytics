@@ -7,7 +7,9 @@ next: /storyline/seasonality-analysis
 permalink: /storyline/funfact-2/
 ---
 
-On his way to Belgium, Bob recognizes a student from his ADA class, and by a stroke of luck, this new friend is Belgian! They discuss the beer festival. Bob’s new friend mentions that they are only 3 beers that were rated by professionals for the past 20 years! They are the : 
+On his way to Belgium, Bob recognizes a student from his ADA class, and by a stroke of luck, this new friend is Belgian! They discuss the beer festival. Bob’s new friend mentions that they are only 3 beers that were rated by professionals for the past 20 years! 
+
+They are the : 
 - Delirium Nocturnum
 - Delirium Tremens
 - Trappistes Rochefort 10

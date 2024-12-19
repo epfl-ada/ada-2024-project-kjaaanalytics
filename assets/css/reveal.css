@@ -30,6 +30,12 @@
     }
 }
 
+.reveal-container {
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+}
+
 .reveal-button {
     padding: 10px 20px;
     font-size: 20px;
@@ -52,9 +58,11 @@
     background:  rgb(255, 235, 235);
     padding: 20px;
     border-radius: 10px;
+    justify-content: center;
+    text-align: justify;
 }
 
-.popup-content button {
+.close-btn {
     margin-top: 10px;
     padding: 10px 15px;
     font-size: 14px;
@@ -63,6 +71,8 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center;
+    width:100%;
 }
 
 .popup-content button:hover {

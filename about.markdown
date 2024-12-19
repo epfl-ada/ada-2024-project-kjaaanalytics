@@ -41,8 +41,9 @@ Bob's Beer Journey is a project that aims to provide insights into the world of 
     </div>
     <div class="team-member">
         <div class="name">Kenza</div>
-        <div class="master-section"> Life Sciences </div>
-        <div class="student-number"> XXXXX </div>
+        <div class="master-section"> SV </div>
+        <div class="student-number"> 300115
+ </div>
     </div>
 </div>
 <section>

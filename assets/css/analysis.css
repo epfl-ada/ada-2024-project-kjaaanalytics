@@ -35,7 +35,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    text-align: center;
+    text-align: justify;
     align-items: stretch;
     flex-grow: 1; /* Allow content to grow */
     padding: 20px 75px 0px 75px;
