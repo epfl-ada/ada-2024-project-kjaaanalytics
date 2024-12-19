@@ -466,50 +466,8 @@ def df_funfact_4(beers_df_copy):
 
     return us_data, state_avg_ratings
 
-# Defining a function to create the plot for funfact_4
-def plot_funfact_4(state_avg_ratings):
-    """
-    Create a heatmap to visualize average beer ratings by state in the United States.
-    This function generates a heatmap where each state is represented along the x-axis,
-    and the corresponding average beer rating is depicted with a color intensity.
-
-    Parameters:
-    ----------
-    state_avg_ratings : pandas.DataFrame
-        A DataFrame containing states (`state_user`) and their respective average 
-        beer ratings (`rating`), sorted in descending order by `rating`.
-
-    Returns:
-    -------
-    None
-        Displays an interactive Plotly heatmap showing average beer ratings by state.
-    """
-    # Creating a heatmap with states on the x-axis and average ratings represented by color intensity
-    fig = go.Figure(data=go.Heatmap(
-        z=[state_avg_ratings['rating'].tolist()],  
-        x=state_avg_ratings['state_user'].tolist(),  
-        y=["Average Rating"] ,  
-        colorscale='Viridis',  
-        colorbar=dict(title="Average Rating") 
-    ))
-
-    # Customizing the layout of the heatmap
-    fig.update_layout(
-        title="Average Beer Ratings by State in the US",
-        title_x=0.5, 
-        xaxis=dict(title="State", tickangle=45), 
-        yaxis=dict(title=""),  
-        height=500,  
-        width=1000  
-    )
-
-    # Displaying the figure
-    #fig.show()
-
-    return fig
-
 # Defining a function to prepare the dataframe used to plot the most popular brewery per state (funfact4_v2)  
-def df_funfact_4_v2_brewery(us_data):
+def df_funfact_4_brewery(us_data):
     """
     Prepare a DataFrame showing the most popular brewery in each state based on the number of entries.
     This function calculates the brewery with the highest count of entries (popularity) 
@@ -534,7 +492,7 @@ def df_funfact_4_v2_brewery(us_data):
 
 
 # Defining a function to create the plot for funfact_4_v2 concerning breweries
-def plot_funfact_4_v2_brewery(most_popular_brewery):
+def plot_funfact_4_brewery(most_popular_brewery):
     """
     Create a bar chart to visualize the most popular brewery in each state.
     The bar chart shows the brewery with the highest number of entries for each state 
@@ -600,98 +558,6 @@ def plot_funfact_4_v2_brewery(most_popular_brewery):
 
     return fig
 
-# Defining a function to prepare the dataframe used to plot the most popular beer style per state (funfact4_v2) 
-def df_funfact_4_v2_beer_style(us_data):
-    """
-    Prepare a DataFrame to identify the most popular beer style for each state.
-    This function determines the most frequently occurring beer style in each state
-    based on user reviews.
-
-    Parameters:
-    ----------
-    us_data : pandas.DataFrame
-        A DataFrame containing beer data for the United States.
-
-    Returns:
-    -------
-    pandas.DataFrame
-        A DataFrame containing the most popular beer style per state.
-    """
-    # Calculating most popular style by state
-    popular_styles = us_data.groupby(['state_user', 'style']).size().reset_index(name='count')
-    most_popular_style = popular_styles.loc[popular_styles.groupby('state_user')['count'].idxmax()]
-
-    # Merging the results into a single DataFrame
-    return most_popular_style[['state_user', 'style', 'count']].rename(columns={'style': 'most_popular_style', 'count': 'style_count'})
-
-
-# Defining a function to create the plot for funfact_4_v2 concerning the beer styles
-def plot_funfact_4_v2_beer_style(most_popular_style):
-    """
-    Create a bar plot showing the most popular beer style per state.
-    This function generates a bar chart where each bar represents a state,
-    the height represents the count of the most popular beer style, and
-    the color corresponds to the specific beer style.
-
-    Parameters:
-    ----------
-    most_popular_style : pandas.DataFrame
-        A DataFrame containing the most popular beer style per state.
-
-    Returns:
-    -------
-    None
-        Displays an interactive bar chart using Plotly.
-    """
-    # Generating unique colors for each brewery
-    unique_beer_style = most_popular_style['most_popular_style'].unique()
-    num_beer_style = len(unique_beer_style)
-
-    # Creating a continuous colormap and convert it to discrete values
-    colors = px.colors.sample_colorscale('turbo', [i / num_beer_style for i in range(num_beer_style)])
-    beer_style_color_map = {beer_style: colors[i] for i, beer_style in enumerate(unique_beer_style)}
-
-    # Adding custom data (beer styles) for hover template
-    most_popular_style['hover_beer_style'] = most_popular_style['most_popular_style']
-
-    # Creating a bar plot using Plotly
-    fig = px.bar(
-        most_popular_style,
-        x='state_user',
-        y='style_count',
-        color='most_popular_style',
-        labels={'state_user': 'State', 'style_count': 'Count'},
-        title="Most Popular Beer Style per State",
-        color_discrete_map=beer_style_color_map,  
-        custom_data=['hover_beer_style'] 
-    )
-
-    # Customizing layout
-    fig.update_layout(
-        title_x=0.5,  
-        xaxis=dict(
-            title="State",
-            tickmode='linear', 
-            tickangle=45,  
-        ),
-        yaxis=dict(title="Beer Style Count"),
-        legend_title_text='Beer Style',
-        height=600,
-        width=1000,
-        margin=dict(l=50, r=50, t=50, b=100) 
-    )
-
-    # Adding a custom hover template
-    fig.update_traces(
-        hovertemplate='<b>State:</b> %{x}<br>' +
-                    '<b>Beer Style:</b> %{customdata[0]}<br>' +
-                    '<b>Count:</b> %{y}<extra></extra>'
-    )
-
-    # Displaying the figure
-    #fig.show()
-
-    return fig
 
 # Defining a function to save figures as html format
 def save_plot_as_html(fig, save_path):
