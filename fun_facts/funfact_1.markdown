@@ -10,7 +10,6 @@ permalink: /storyline/funfact-1/
 To begin his journey, Bob will travel to England. On his way to England, he sits next to a very nice Englishman, and they start discussing Bob’s favorite subject: BEERS. He learns that the English really enjoy beer, and they start discussing different preferences for beer styles. However, this English man knows way too many styles, and this is very confusing to Bob. To help Bob, we grouped the most popular beer styles into 17 different categories. 
 
 <div> {%-include interactive_beer_mapping.html-%} </div>
-<img title="a title" alt="plot_funfact1" src="/assets/figures/plot_funfact1.png">
 
 He is now relieved and can compare the differences between Swiss and English preferences. To help Bob compare the different beer styles, we plotted a bar chart comparing the 17 beer styles' average rating scores in Switzerland and England. The plot is generated so that as we go to the right of the plot, the difference between the two countries decreases.
 
