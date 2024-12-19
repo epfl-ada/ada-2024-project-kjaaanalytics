@@ -63,7 +63,9 @@ body.fade-out {
 .background-image-container img {
     width: 100%; /* Ensure the image takes up the full width */
     height: auto; /* Maintain aspect ratio */
-    transform: scaleY(0.6); /* Scale down the image in the Y axis */
+    transform: scaleY(0.6) scaleX(0.97); /* Scale down the image in the Y axis */
+    overflow: hidden;
+    margin-left: -40px; /* Adjust the value as needed */
 }
 
 .timeline-container .button {
@@ -121,8 +123,8 @@ body.fade-out {
 }
 
 .timeline-container .button.special-button:hover {
-    width: 60px; /* Grow in size on hover */
-    height: 60px; /* Grow in size on hover */
+    width: 70px; /* Grow in size on hover */
+    height: 70px; /* Grow in size on hover */
     font-size: 12px; /* Show text on hover */
     font-weight: bold; /* Bold text */
     line-height: 25px; /* Center text vertically */
@@ -154,7 +156,7 @@ body.fade-out {
 }
 
 .timeline-container .button.special-button:nth-child(6)::after {
-    content: "Analysis\A 1";
+    content: "Semantic\A Analysis";
     white-space: pre;
     display: block;
     line-height: 1.2;
@@ -164,7 +166,7 @@ body.fade-out {
 }
 
 .timeline-container .button.special-button:nth-child(7)::after {
-    content: "Analysis\A 2";
+    content: "Seasonality\A Analysis";
     white-space: pre;
     display: block;
     line-height: 1.2;
@@ -174,7 +176,7 @@ body.fade-out {
 }
 
 .timeline-container .button.special-button:nth-child(8)::after {
-    content: "Analysis\A 3";
+    content: "Polarizing\A Beers\A Analysis";
     white-space: pre;
     display: block;
     line-height: 1.2;
@@ -184,7 +186,7 @@ body.fade-out {
 }
 
 .timeline-container .button.special-button:nth-child(9)::after {
-    content: "Analysis\A 4";
+    content: "Climate\A Preferences";
     white-space: pre;
     display: block;
     line-height: 1.2;
@@ -238,4 +240,18 @@ body.fade-out {
     left: 3%; /* Position the fourth button (train) */
     top: 9%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.07);
+}
+
+.timeline-container .button:nth-child(16) {
+    /* EPFL Logo */
+    left: 97.5%;
+    top: 46%;
+    transform: translate(-50%, -50%) scale(0.2);
+}
+
+.timeline-container .button:nth-child(16):hover {
+    /* EPFL Logo */
+    left: 97.5%;
+    top: 46%;
+    transform: translate(-50%, -50%) scale(0.4);
 }
