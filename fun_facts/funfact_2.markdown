@@ -1,5 +1,5 @@
 ---
-layout: analysis
+layout: funfact
 title: "Fun Fact #2"
 subtitle: "Exploring the most-loved beers in different countries"
 previous: /storyline/analysis-1

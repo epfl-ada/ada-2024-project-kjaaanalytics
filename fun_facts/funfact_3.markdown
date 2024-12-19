@@ -1,5 +1,5 @@
 ---
-layout: analysis
+layout: funfact
 title:  "Fun Fact #3"
 subtitle: "OH CANADA"
 previous: /storyline/analysis-2

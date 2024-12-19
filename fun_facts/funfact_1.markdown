@@ -1,5 +1,5 @@
 ---
-layout: analysis
+layout: funfact
 title: "From Switzerland to England"
 subtitle: "If needed quick transition text here!"
 previous: /storyline/about

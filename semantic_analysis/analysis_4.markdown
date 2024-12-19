@@ -3,7 +3,7 @@ layout: analysis
 title: "Semantic Analysis #4"
 subtitle: "Arizona (Not the Tea....The State please)"
 previous: /storyline/funfact-4
-next: /storyline/end
+next: /storyline/conclusion
 permalink:  /storyline/analysis-4
 ---
 
