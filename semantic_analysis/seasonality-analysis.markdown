@@ -11,8 +11,9 @@ Bob is now at the beer festival that always occurs in early September.  Neverthe
 
 To satisfy Bob’s curiosity, we look at the average rating of each beer style during different seasons, focusing on the ratings coming from belgian user. The seasons are pretty uniform across Belgium, so it makes sense to compare seasonal preferences there. Additionally, seasonal changes in climate are pretty strong here! Indeed falls and winters are typically cold and rainy, whereas springs and summers can get hot and sunny. To understand seasonal beer style preferences, reviews were grouped by season and by beer style, and ratings aggregated via averaging. Then, the beer styles were ranked per season, and the five best-rated styles are presented in the next graph.
 
-
-<img style="width: 1000px; height: 600px;" alt="Seasonality analysis" src="{{'/assets/figures/seasonality_analysis_plot.png' | relative_url}}">
+<div>
+{%- include analysis2_plot.html -%}
+</div>
 
 
 Bob’s hypothesis was partly correct. Indeed, some styles seem to have more succes in some months than in others. 
