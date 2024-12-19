@@ -1,7 +1,7 @@
 ---
 layout: analysis
 title:  Embark on Bob's Beer Journey
-subtitle: "Discover the world of beers, flavors, and insights as Bob travels the globe!"
+subtitle: "Discover the world of beers, flavors, and insights as Bob travels the globe using our Interactive Timeline!"
 previous: 
 next: /storyline/funfact-1
 permalink: /storyline/about
