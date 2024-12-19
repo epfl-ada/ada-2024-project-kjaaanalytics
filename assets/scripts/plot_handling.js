@@ -2,9 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectElement = document.getElementById('beer-style-select');
     const wordCloudImage = document.getElementById('wordcloud-image');
     const loadingSpinner = document.getElementById('loading-spinner');
-
+    
     function updateImage() {
         const selectedStyle = selectElement.value;
+        //var base_url = window.location.origin
+        var base_path = wordCloudImage.src.substring(0, wordCloudImage.src.lastIndexOf('/'));;
+        
 
         // Show loading spinner and hide the current image
         wordCloudImage.style.visibility = 'hidden';
@@ -12,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Preload the new image
         const newImage = new Image();
-        newImage.src = `/assets/figures/wordcloud_categories/${selectedStyle}.svg`;
+        newImage.src = `${base_path}/${selectedStyle}.svg`;
         // Update the image source and alt text
         wordCloudImage.src = newImage.src;
         wordCloudImage.alt = `${selectedStyle} Word Cloud`;

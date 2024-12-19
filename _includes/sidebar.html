@@ -13,11 +13,11 @@
         {% for i in (0..9) %}
             {% if active_class == pages[i] %}
                 <li class="active">
-                    <a onclick="transitionToPage('/storyline/{{ pages[i] }}')"><span class="icon">🍻</span> {{ item_names[i] }}</a>
+                    <a onclick="transitionToPage('{{site.baseurl}}/storyline/{{ pages[i] }}')"><span class="icon">🍻</span> {{ item_names[i] }}</a>
                 </li>
             {% else %}
                 <li>
-                    <a onclick="transitionToPage('/storyline/{{ pages[i] }}')"><span class="icon"></span> {{ item_names[i] }}</a>
+                    <a onclick="transitionToPage('{{site.baseurl}}/storyline/{{ pages[i] }}')"><span class="icon"></span> {{ item_names[i] }}</a>
                 </li>
             {% endif %}
         {% endfor %}
