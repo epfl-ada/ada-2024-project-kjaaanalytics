@@ -27,7 +27,7 @@ Bob's Beer Journey is a project that aims to provide insights into the world of 
     <div class="team-member">
         <div class="name">Andrew</div>
         <div class="master-section"> Robotics </div>
-        <div class="student-number"> XXXXX </div>
+        <div class="student-number"> 370751 </div>
     </div>
     <div class="team-member">
         <div class="name">Julie</div>
