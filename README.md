@@ -201,7 +201,7 @@ For Milestone 2:
 For Milestone 3:
 - **Amélie and Julie**: Analysis part.
 
--**Andrew and Alex**: Website implementation.
+- **Andrew and Alex**: Website implementation.
 
 - **Kenza**: Funfacts part. 
 ## Questions for TAs
