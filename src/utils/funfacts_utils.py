@@ -151,6 +151,8 @@ def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_f
         margin= dict(t=50, l=25, r=25, b=25),
         paper_bgcolor="rgb(0,0,0,0)",
         plot_bgcolor="rgba(0, 0, 0, 0)",
+        legend=dict(
+        bgcolor="rgba(0, 0, 0, 0)")
     )
 
     return fig
@@ -263,9 +265,10 @@ def plot_funfact_2(rating_by_year_beer_filtered):
         template='plotly_white',  
         title_font=dict(size=20),
         legend=dict(
-            title='Beer Name',
-            x=1.05,  
-            y=1
+        title='Beer Name',
+        x=1.05,  
+        y=1,
+        bgcolor="rgba(0, 0, 0, 0)" 
         ),
         margin= dict(t=50, l=25, r=25, b=25),
         paper_bgcolor="rgb(0,0,0,0)",
@@ -409,6 +412,7 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
             y=0.5,
             traceorder="normal",
             font=dict(size=12),
+            bgcolor="rgba(0, 0, 0, 0)"
         ),
         piecolorway=color_palette,
         showlegend=True, 
@@ -534,7 +538,9 @@ def plot_funfact_4_brewery(most_popular_brewery):
         width=1000,
         margin= dict(t=50, l=25, r=25, b=25),
         paper_bgcolor="rgb(0,0,0,0)",
-        plot_bgcolor="rgba(0, 0, 0, 0)"  
+        plot_bgcolor="rgba(0, 0, 0, 0)",
+        legend=dict(
+        bgcolor="rgba(0, 0, 0, 0)") 
     )
 
     # Adding hover template for detailed tooltips
