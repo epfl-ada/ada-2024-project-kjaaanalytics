@@ -249,47 +249,6 @@ def plot_funfact_2(rating_by_year_beer_filtered):
 
     return fig
 
-# Defining a function to print the best beer names in winter and summer seasons (funfact2)
-def best_beer_by_season(belgium_beers):
-    """
-    Identify the highest-rated beers in Belgium for winter and summer seasons.
-    This function analyzes Belgian beer data to determine the beer with the 
-    highest average rating for the winter and summer seasons.
-
-    Parameters:
-    ----------
-    belgium_beers : pandas.DataFrame
-        A DataFrame containing Belgian beer data.
-
-    Returns:
-    -------
-    tuple
-        - winter_highest_rated (pandas.Series): A Series representing the beer 
-          with the highest average rating in the winter season.
-        - summer_highest_rated (pandas.Series): A Series representing the beer 
-          with the highest average rating in the summer season.
-    """
-    # Defining winter and summer months
-    winter_months = [12, 1, 2]  # December, January, February
-    summer_months = [6, 7, 8]   # June, July, August
-
-    # Creating a new column to indicate the season
-    belgium_beers['season'] = belgium_beers['month'].apply(lambda x: 'Winter' if x in winter_months else ('Summer' if x in summer_months else 'Other'))
-
-    # Filtering for winter and summer data
-    winter_data = belgium_beers[belgium_beers['season'] == 'Winter']
-    summer_data = belgium_beers[belgium_beers['season'] == 'Summer']
-
-    # Grouping by beer_name and calculate the average rating for each beer in winter and summer
-    winter_avg_ratings = winter_data.groupby('beer_name')['rating'].mean().reset_index()
-    summer_avg_ratings = summer_data.groupby('beer_name')['rating'].mean().reset_index()
-
-    # Finding the beer with the highest average rating in each season
-    winter_highest_rated = winter_avg_ratings.loc[winter_avg_ratings['rating'].idxmax()]
-    summer_highest_rated = summer_avg_ratings.loc[summer_avg_ratings['rating'].idxmax()]
-
-    return winter_highest_rated, summer_highest_rated
-
 ####  Fun fact #3 - Bob travels from Belgium to Canada 
 
 # Defining a function to prepare the dataframe used to plot beer styles in Belgium and Canada (funfact3)
