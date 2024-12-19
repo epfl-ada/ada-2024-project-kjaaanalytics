@@ -52,7 +52,7 @@ body.fade-out {
     position: relative; /* Ensure the container is the reference for absolute positioning */
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 0px; /* Adjust for the timeline arrow height */
+    margin-bottom: -30px; /* Adjust for the timeline arrow height */
 }
 
 .background-image-container {
@@ -77,28 +77,28 @@ body.fade-out {
 .timeline-container .button:nth-child(2) {
     /* Train CH --> UK */
     left: 20%; /* Position the fourth button (train) */
-    top: 50%; /* Center vertically */
+    top: -10%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.2);
 }
 
 .timeline-container .button:nth-child(3) {
     /* Boat */
     left: 40%; /* Position the first button (boat) */
-    top: 30%; /* Center vertically */
+    top: -20%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.7);
 }
 
 .timeline-container .button:nth-child(4) {
     /* Plane */
     left: 60%; /* Position the second button (plane) */
-    top: 50%; /* Center vertically */
+    top: -20%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.25);
 }
 
 .timeline-container .button:nth-child(5) {
     /* Car */
     left: 80%; /* Position the third button (car) */
-    top: 50%; /* Center vertically */
+    top: -10%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.3);
 }
 
@@ -155,6 +155,12 @@ body.fade-out {
     text-decoration: none;
 }
 
+.timeline-container .button.special-button:nth-child(10) {
+    left: 10%; /* Position next to the fourth button (train) */
+    top: 50%; /* Center vertically */
+    text-decoration: none;
+}
+
 .timeline-container .button.special-button:nth-child(6)::after {
     content: "Semantic\A Analysis";
     white-space: pre;
@@ -195,61 +201,71 @@ body.fade-out {
     transform: translateY(-50%);
 }
 
-.timeline-container .button:nth-child(10) {
-    /* Switzerland Pin*/
-    left: 10%; /* Position the fourth button (train) */
-    top: 4%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.1);
-    z-index: -1;
+.timeline-container .button.special-button:nth-child(10)::after {
+    content: "About";
+    white-space: pre;
+    display: block;
+    line-height: 1.2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .timeline-container .button:nth-child(11) {
-    /* UK Pin */
-    left: 30%; /* Position the fourth button (train) */
-    top: 4%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.1);
+    /* Switzerland Pin*/
+    left: 10%; /* Position the fourth button (train) */
+    top: -17%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.13);
     z-index: -1;
 }
 
 .timeline-container .button:nth-child(12) {
-    /* Belgium Pin */
-    left: 50%; /* Position the fourth button (train) */
-    top: 4%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.1);
+    /* UK Pin */
+    left: 30%; /* Position the fourth button (train) */
+    top: -17%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.13);
     z-index: -1;
 }
 
 .timeline-container .button:nth-child(13) {
-    /* Canada Pin*/
-    left: 70%; /* Position the fourth button (train) */
-    top: 4%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.1);
+    /* Belgium Pin */
+    left: 50%; /* Position the fourth button (train) */
+    top: -17%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.13);
     z-index: -1;
 }
 
 .timeline-container .button:nth-child(14) {
-    /* USA Pin */
-    left: 90%; /* Position the fourth button (train) */
-    top: 4%; /* Center vertically */
-    transform: translate(-50%, -50%) scale(0.1);
+    /* Canada Pin*/
+    left: 70%; /* Position the fourth button (train) */
+    top: -17%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.13);
     z-index: -1;
 }
 
 .timeline-container .button:nth-child(15) {
+    /* USA Pin */
+    left: 90%; /* Position the fourth button (train) */
+    top: -17%; /* Center vertically */
+    transform: translate(-50%, -50%) scale(0.13);
+    z-index: -1;
+}
+
+.timeline-container .button:nth-child(16) {
     /* Home Pin */
     left: 3%; /* Position the fourth button (train) */
     top: 9%; /* Center vertically */
     transform: translate(-50%, -50%) scale(0.07);
 }
 
-.timeline-container .button:nth-child(16) {
+.timeline-container .button:nth-child(17) {
     /* EPFL Logo */
     left: 97.5%;
     top: 46%;
-    transform: translate(-50%, -50%) scale(0.2);
+    transform: translate(-50%, -50%) scale(0.15);
 }
 
-.timeline-container .button:nth-child(16):hover {
+.timeline-container .button:nth-child(17):hover {
     /* EPFL Logo */
     left: 97.5%;
     top: 46%;
