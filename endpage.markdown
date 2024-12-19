@@ -9,5 +9,6 @@ In England first, he learnt what vocabulary the real beer connoisseurs use to de
 
 The time has now come for Bob to go home and share his insights with his favorite bar, *Satellite* of course! As he learned that it was important, he wants to recommend beer styles, that are in accordance with Lausanne’s climate. Doing a final analysis in the plane, he looks at Switzerland’s climate and classifies it using the American climate to assign each point to an existing cluster. By spotting Lausanne on the map, he checks the cluster label, and goes back to his notes to find the three best-rated beer styles in this *typical climate*. Get ready to discover his final recommendations!
 
+<div style="align-self: center">
 <img title="" alt="plot analysis 2" src="{{ '/assets/figures/switzerland_plot.svg' | relative_url}}">
 </div>

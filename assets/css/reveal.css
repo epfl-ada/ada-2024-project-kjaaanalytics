@@ -34,6 +34,7 @@
     text-align: center;
     justify-content: center;
     align-self: center;
+    margin-top: 30px;
 }
 
 .reveal-button {
@@ -63,7 +64,7 @@
 }
 
 .close-btn {
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 10px 15px;
     font-size: 14px;
     background: #d35400;
