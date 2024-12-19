@@ -1,32 +1,26 @@
 ---
 layout: analysis
-title: "Semantic Analysis #4"
-subtitle: "Arizona (Not the Tea....The State please)"
+title: "Climate-related Analysis"
+subtitle: ""
 previous: /storyline/funfact-4
 next: /storyline/conclusion 
 permalink:  /storyline/climate-related-analysis
 ---
 
-After leaving the freezing country of Canada, Bob arrives in Arizona. … .We help Bob identify popular style in different climate. 
+After leaving the freezing country of Canada, Bob arrives in Arizona. We help Bob identify popular style in different climate. 
 
-First, we cluster each loacalization of the us based on climate similarities to find XXX *typical climates*. Then, each states is assigned a *typical climate* based on majority voting
+In order to observe a meaningful relationship, we must define the concept of “climate” in a quantifiable manner.  Using refined weather data (monthly mean temperature and precipitation), each point is clustered with similar samples, as to produce 5 typical climate for the USA. To choose the appropriate number of clusters n, the algorithm is ran with different with values for n going from 2 to 9. The visual inspection of the MSE score on the data indicates that n = 5 is a reasonable choice, as it is a good compromise between clustering accuracy and meaningful generalized typical climate for the remaining analysis.
 
-## Did You Know?
-Amélie made this amazing plot! I love it ❤
+<!-- Plot goes here -->
+<img src="{{ 'assets/figures/analysis4_plot.png' | relative_url }}" width="1000">
 
-<div>
-    {% include interactive_beer_mapping.html %} 
-</div>
+The results from the clustering are interesting as they reflect well both the latitude differences and the topography. The north-south stratification is expected from northern states being colder and rainier than the southern states and is easily discernable. The topography appears with the blue trail on the west coast situated where the Rocky Mountains are.
 
-## Explainations
+These clustered samples are subsequently interpolated per state, using majority voting to obtain the map in the bottom left.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor nunc id sem dapibus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sed lorem nulla. Integer vehicula justo sed quam faucibus vulputate. Donec at hendrerit augue. Maecenas ullamcorper tellus est, sed tempor ligula malesuada ut. Curabitur augue odio, cursus ac consectetur vitae, sodales in leo. Maecenas vitae tellus vehicula, vestibulum urna ac, lobortis nunc. Curabitur condimentum sit amet neque eget suscipit. Sed luctus tristique mauris ac consequat. Curabitur enim nunc, volutpat in dictum aliquet, dictum quis nulla. Morbi viverra ultrices semper. Morbi in nisi vel ex bibendum eleifend.
+To relate those climatic feature to beer preferences, and thus discovering what are the best rated styles in each *typical climate*, american overall beer ratings are grouped by states and by beer style, keeping the average overall rating per style.  Each style is then ranked per state, and the favorite style per state is kept. Using majority voting again, each climatic cluster obtains a best-rated beer style, supposedly representing the favorite style for this *typical climate.*
 
-Nullam tincidunt, velit bibendum tempor aliquam, dolor ipsum congue enim, ac interdum felis lacus et magna. Morbi commodo quis arcu ut lobortis. Praesent at dolor tristique, aliquet elit vulputate, varius tortor. Fusce ex orci, mattis vitae mattis vitae, iaculis et mauris. Fusce eu quam ante. Curabitur sollicitudin dapibus maximus. Nam vel bibendum ante. Aliquam erat volutpat. Duis elit lectus, efficitur at libero eget, ultrices placerat dolor. Nam rutrum nisi semper nulla rhoncus, sit amet cursus ex imperdiet. Nam efficitur volutpat quam et consectetur. Donec auctor sapien vel semper fermentum. Pellentesque ac sem scelerisque, semper leo sed, facilisis eros. Nullam pharetra, ligula in fermentum faucibus, sem metus finibus lectus, id luctus dui purus sit amet lectus. Suspendisse potenti.
+The map on the lower right displays this favorite beer style. It shows that out of 5 typical climates, three of them most like the *Quadrupel* style. The northern states rate best the *India Pale ALE (IPA)* and the coastal states prefer *American Double / Imperial IPA.*
 
-Maecenas sed diam vel ipsum maximus ullamcorper sit amet vel metus. Duis ex nisi, iaculis lobortis tellus rhoncus, luctus viverra erat. Cras semper mauris vel quam sodales porttitor. Morbi pellentesque leo elementum massa bibendum, non laoreet libero rhoncus. Sed ac pulvinar nibh. Donec tincidunt, magna ut finibus iaculis, velit ipsum tempus velit, at eleifend eros sem fringilla enim. Fusce elementum odio dui, lacinia vestibulum sapien mollis vitae. In porta nibh sed tristique efficitur.
-
-Nulla sit amet arcu erat. Maecenas quis mauris mauris. Mauris sed lacus turpis. Duis pellentesque, massa sed eleifend condimentum, dui lorem faucibus neque, ut tincidunt lorem purus ac nunc. Aliquam ac nulla cursus, ultricies augue non, mollis elit. Proin sed massa sed nisl aliquam placerat vel sed odio. Integer rhoncus id libero nec ultricies. Quisque dui turpis, mollis a enim ac, elementum posuere mauris. Pellentesque interdum molestie felis, ut semper risus fringilla eu. Curabitur volutpat nisi et lectus volutpat consequat. Cras consectetur, lectus in facilisis tincidunt, neque orci fermentum quam, sed accumsan lectus mauris vitae dolor. Etiam eu egestas libero, nec rhoncus nibh. Pellentesque bibendum iaculis suscipit. Sed ullamcorper nulla purus, vel commodo felis porttitor et. Proin ornare feugiat egestas. Mauris pellentesque feugiat magna, ac faucibus quam fringilla eget.
-
-Cras quis pretium tortor. Nulla faucibus dictum velit, eget egestas quam gravida ut. Maecenas dictum dignissim mi, non ultrices dui porttitor in. Duis nulla magna, vehicula non diam vitae, fringilla pharetra lorem. In volutpat viverra egestas. Aliquam pellentesque nisi ex, sit amet rhoncus massa scelerisque vel. Phasellus scelerisque ut dolor et varius. Ut in molestie elit. Sed porttitor ante ut orci condimentum, non tincidunt leo rhoncus. Nulla facilisi. Sed quis blandit nunc, non convallis purus. Suspendisse vehicula, elit nec efficitur viverra, nulla risus sagittis elit, quis suscipit odio lacus nec magna.
+Strong from this new knowledge about the link between climate and beer preferences, Bob wonders to what *typical climate* Lausanne belongs. If only he knew, he could recommend the best-rated style to his friends at *Satellite*!
 

@@ -1,18 +1,21 @@
 ---
 layout: analysis
-title: "Semantic Analysis #1"
-subtitle: "Damn, I can't talk. Please help me!"
+title: "Semantic Analysis"
+subtitle: ""
 previous: /storyline/funfact-1
 next: /storyline/funfact-2
 permalink:  /storyline/semantic-analysis
 ---
 
+Bob arrives in New Castle, the city with the most breweries in England ! He has learned the differences between English and Swiss preferences. But, he still does not know how to properly describe a beer, based on its style. He wants to learn about how to BEST describe them.
+
+
+To help Bob hone his skills in beer descriptions we plot a word cloud depending on the type of beer he wants to describe. The data has been preprocessed, removing key stop words as well as special characters.
+
 <div>
     {%- include dropdown_plot.html content="wordcloud_categories" -%}
 </div>
 
-## Explainations
+Bob knows that Stout and Porter beers are the most appreciated in England. He can know describe them like a connoiseur. For example, to describe Stout, he can say that the beer is light, sweet and that it tastes like dark chocolate ! 
 
-To begin his journey, Bob will travel to England. He knows that the English really enjoy beer and he wants to learn about how to describe them. However, he is overwhelmed by the amount of beer styles available. To help Bob, we grouped the most popular beer styles into x different categories.  He has learned previously that x type of beer is the most appreciated by english people. Now he can hone his skills in beer descriptions ! 
-
-To help Bob discover more, we plot a word cloud depending on the type of beer he wants to describe. The data has been preprocessed, removing key stop words as well as special characters
+Now that he knows how to describe beer styles properly, he is ready to go on a new adventure to discover the seasonality of beers preference. What better way to discover that than going one of the biggest beer festival in the capital of beer : _Brussels_ !

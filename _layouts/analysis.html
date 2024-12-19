@@ -17,7 +17,9 @@
     <!-- Content Section -->
     <div class="content">
       <h2>{{ page.title }}</h2>
-      <p>{{ page.subtitle }}</p>
+      {% if page.subtitle != "" %}
+        <p>{{ page.subtitle }}</p>
+      {% endif %}
       {{ content }}
 
         <!-- Navigation buttons Section -->

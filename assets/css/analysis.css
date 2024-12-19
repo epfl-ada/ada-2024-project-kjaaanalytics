@@ -38,8 +38,7 @@ header {
     text-align: center;
     align-items: stretch;
     flex-grow: 1; /* Allow content to grow */
-    width: auto; /* Auto width */
-    padding: 20px 50px 0px;
+    padding: 20px 75px 0px 75px;
     top: 0px;
     bottom: 0px;
     overflow-y: auto;
@@ -66,8 +65,4 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
-}
-
-#wordcloud-image:hover {
-    transform: scale(1.05);
 }

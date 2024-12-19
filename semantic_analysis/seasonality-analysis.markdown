@@ -1,22 +1,27 @@
 ---
 layout: analysis
-title: "Semantic Analysis #2"
-subtitle: "Seasonality w.r.t beer ratings? Beer # ratings perhaps?"
+title: "Seasonality analysis"
+subtitle: ""
 previous: /storyline/funfact-2
 next: /storyline/funfact-3
 permalink:  /storyline/seasonality-analysis
 ---
 
-<img title="a title" alt="plot analysis 2" src="{{'/assets/figures/plot_analysis2.png' | relative_url}}">
+Bob is now at the beer festival that always occurs in early September.  Nevertheless it is pouring rain, and while enjoying his beer, Bob wonders how the seasons affect beer preferences. Surely people must enjoy different type of beers in summer than in winter! 
 
-## Explainations
+To satisfy Bob’s curiosity, we look at the average rating of each beer style during different seasons, focusing on the ratings coming from belgian user. The seasons are pretty uniform across Belgium, so it makes sense to compare seasonal preferences there. Additionally, seasonal changes in climate are pretty strong here! Indeed falls and winters are typically cold and rainy, whereas springs and summers can get hot and sunny. To understand seasonal beer style preferences, reviews were grouped by season and by beer style, and ratings aggregated via averaging. Then, the beer styles were ranked per season, and the five best-rated styles are presented in the next graph.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor nunc id sem dapibus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sed lorem nulla. Integer vehicula justo sed quam faucibus vulputate. Donec at hendrerit augue. Maecenas ullamcorper tellus est, sed tempor ligula malesuada ut. Curabitur augue odio, cursus ac consectetur vitae, sodales in leo. Maecenas vitae tellus vehicula, vestibulum urna ac, lobortis nunc. Curabitur condimentum sit amet neque eget suscipit. Sed luctus tristique mauris ac consequat. Curabitur enim nunc, volutpat in dictum aliquet, dictum quis nulla. Morbi viverra ultrices semper. Morbi in nisi vel ex bibendum eleifend.
 
-Nullam tincidunt, velit bibendum tempor aliquam, dolor ipsum congue enim, ac interdum felis lacus et magna. Morbi commodo quis arcu ut lobortis. Praesent at dolor tristique, aliquet elit vulputate, varius tortor. Fusce ex orci, mattis vitae mattis vitae, iaculis et mauris. Fusce eu quam ante. Curabitur sollicitudin dapibus maximus. Nam vel bibendum ante. Aliquam erat volutpat. Duis elit lectus, efficitur at libero eget, ultrices placerat dolor. Nam rutrum nisi semper nulla rhoncus, sit amet cursus ex imperdiet. Nam efficitur volutpat quam et consectetur. Donec auctor sapien vel semper fermentum. Pellentesque ac sem scelerisque, semper leo sed, facilisis eros. Nullam pharetra, ligula in fermentum faucibus, sem metus finibus lectus, id luctus dui purus sit amet lectus. Suspendisse potenti.
+<img style="width: 800px; height: 400px;" alt="Seasonality analysis" src="{{'/assets/figures/seasonality_analysis_plot.svg' | relative_url}}">
 
-Maecenas sed diam vel ipsum maximus ullamcorper sit amet vel metus. Duis ex nisi, iaculis lobortis tellus rhoncus, luctus viverra erat. Cras semper mauris vel quam sodales porttitor. Morbi pellentesque leo elementum massa bibendum, non laoreet libero rhoncus. Sed ac pulvinar nibh. Donec tincidunt, magna ut finibus iaculis, velit ipsum tempus velit, at eleifend eros sem fringilla enim. Fusce elementum odio dui, lacinia vestibulum sapien mollis vitae. In porta nibh sed tristique efficitur.
 
-Nulla sit amet arcu erat. Maecenas quis mauris mauris. Mauris sed lacus turpis. Duis pellentesque, massa sed eleifend condimentum, dui lorem faucibus neque, ut tincidunt lorem purus ac nunc. Aliquam ac nulla cursus, ultricies augue non, mollis elit. Proin sed massa sed nisl aliquam placerat vel sed odio. Integer rhoncus id libero nec ultricies. Quisque dui turpis, mollis a enim ac, elementum posuere mauris. Pellentesque interdum molestie felis, ut semper risus fringilla eu. Curabitur volutpat nisi et lectus volutpat consequat. Cras consectetur, lectus in facilisis tincidunt, neque orci fermentum quam, sed accumsan lectus mauris vitae dolor. Etiam eu egestas libero, nec rhoncus nibh. Pellentesque bibendum iaculis suscipit. Sed ullamcorper nulla purus, vel commodo felis porttitor et. Proin ornare feugiat egestas. Mauris pellentesque feugiat magna, ac faucibus quam fringilla eget.
+Bob’s hypothesis was partly correct. Indeed, some styles seem to have more succes in some months than in others. 
 
-Cras quis pretium tortor. Nulla faucibus dictum velit, eget egestas quam gravida ut. Maecenas dictum dignissim mi, non ultrices dui porttitor in. Duis nulla magna, vehicula non diam vitae, fringilla pharetra lorem. In volutpat viverra egestas. Aliquam pellentesque nisi ex, sit amet rhoncus massa scelerisque vel. Phasellus scelerisque ut dolor et varius. Ut in molestie elit. Sed porttitor ante ut orci condimentum, non tincidunt leo rhoncus. Nulla facilisi. Sed quis blandit nunc, non convallis purus. Suspendisse vehicula, elit nec efficitur viverra, nulla risus sagittis elit, quis suscipit odio lacus nec magna.
+This is the case for _American Ales_ (_Brown_, _Amber_, _Red_ and _Black_), which are best-rated in Fall and Winter. Those beer styles usually display deep caramel and chocolate flavor profiles, and medium to high bitterness. In summer, the *Faro* style, which comes from Brussel is popular mainly in spring and summer. *Faro* in made from *Lambic* beer, by adding additional brown sugar. The two *Lambic* styles are also best-rated in spring, which hints at distinct taste preferences during this season. This style is also known for its cidery aftertaste.
+
+Over the year, cidery style like *Lambic* and *Faro* or lighter beers such as *Mailbock* seemed to be preferred in spring, whereas deep and bitter beers, like the *American Ales*, are best-rated in fall and winter
+
+Nevertheless some styles, such as *Gueuze* seem to be year-round staples for Belgians. This local beer style is highly carbonated and made from *Lambic* beers. *Eisbock* as well are enjoyed both in winter and in summer, despite its malty flavor ans strong alcohol content.
+Overall, Bob’s intuition was partly right! He is quite happy about this insight into seasonal preferences, and is ready to share it to fellow beer-enthusiats during the beer festival. 
+
+He is now eager to explore how beer preferences shift in a different cultural and geographical context. With its unique regional styles, Canada offers the perfect oppurtunity to compare and contrast brewing traditions.
