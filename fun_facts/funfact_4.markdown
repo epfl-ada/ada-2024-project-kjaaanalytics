@@ -2,7 +2,7 @@
 layout: funfact
 title: "Fun Fact #4"
 subtitle: "Welcome to America!"
-previous: /storyline/analysis-3
+previous: /storyline/polarizing-analysis
 next: /storyline/climate-related-analysis
 permalink: /storyline/funfact-4/
 ---

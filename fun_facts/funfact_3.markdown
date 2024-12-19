@@ -1,7 +1,8 @@
 ---
 layout: funfact
 title:  "Fun Fact #3"
-previous: /storyline/analysis-2
+subtitle: "OH CANADA"
+previous: /storyline/seasonality-analysis
 next: /storyline/polarizing-analysis
 permalink: /storyline/funfact-3/
 ---
