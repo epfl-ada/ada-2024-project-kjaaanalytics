@@ -1,0 +1,70 @@
+.popup-container {
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Fully transparent initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    height: 100%;
+    background: rgba(28, 28, 28, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease; /* Smooth transition for appearance */
+}
+
+.popup-container.show {
+    visibility: visible; /* Make visible */
+    opacity: 1; /* Fade in */
+}
+
+@keyframes popup-appear {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.reveal-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    height: 60px;
+    width: 250px;
+    background: #2872a300;
+    color: #000000;
+    border: solid 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.reveal-button:hover {
+    background: #7fb6da;
+}
+
+.popup-content {
+    background:  rgb(255, 235, 235);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.popup-content button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background: #d35400;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background: #b03a00;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="{{ '/assets/scripts/transitions.js' | relative_url }}"></script>
+    <script src="{{ '/assets/scripts/beer_reveal.js' | relative_url }}"></script>
+    
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+<link rel="stylesheet" href="{{ '/assets/css/analysis.css' | relative_url }}">
+<link rel="stylesheet" href="{{'/assets/css/sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{'/assets/css/reveal.css' | relative_url }}">
+
+{%- include head.html -%}
+
+<body>
+    <div class="main-content">
+        <div id="nav-sidebar">
+            {%- include sidebar.html -%}
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content">
+            <h2>{{ page.title }}</h2>
+            {% if page.subtitle != "" %}
+            <p>{{ page.subtitle }}</p>
+            {% endif %}
+            {{ content }}
+            
+            <!-- Beer Reveal Section -->
+        <div class="popup-container">
+            <div class="popup-content">
+                <h2>✨ Top Picks! ✨</h2>
+                <p><strong>Style 1:</strong> Imperial Stout - <em>Dark Knight</em></p>
+                <p><strong>Style 2:</strong> IPA - <em>Tropical Thunder</em></p>
+                <button class="close-btn" onclick="closePopup()">Close</button>
+            </div>
+        </div>
+        <div id="reveal-container" class="container">
+            <h1>Bob's Top Beer Recommendations</h1>
+            <p>Click the button below to reveal the top beer picks for Satellite Bar!</p>
+            <button class="reveal-button" onclick="showPopup()">Reveal the Beers</button>
+        </div>
+
+    
+    <!-- Navigation buttons Section -->
+    {%- include navigation.html -%}
+</div>
+</div>
+
+</body>
+</html>
