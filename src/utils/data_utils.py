@@ -2,6 +2,38 @@ import pandas as pd
 import numpy as np
 import time
 
+def preprocess_beers_df(beers_df):
+    """
+    Preprocesses the input beer DataFrame by renaming columns, removing the first row, resetting the index, 
+    and dropping unnecessary columns.
+
+    Parameters:
+    ----------
+    beers_df (pandas.DataFrame): The input beer data.
+
+    Returns:
+    ----------
+    beers_df_copy (pandas.DataFrame): A cleaned and processed version of the input DataFrame.
+    """
+    # Making a copy of the beers_df, rename the column names and remove the first row indexed with 0 since it is now merged in the column names
+    beers_df_copy=beers_df.copy()
+    beers_df_copy= beers_df_copy.rename(columns={'ba': 'ba_abv', 'ba.1': 'ba_avg', 'ba.2': 'ba_avg_computed', 'ba.3': 'ba_avg_matched_valid_ratings', 'ba.4': 'ba_score', 
+                                                'ba.5': 'ba_beer_id', 'ba.6': 'ba_beer_name', 'ba.7': 'ba_beer_wout_brewery_name','ba.8':'ba_brewery_id',
+                                                'ba.9': 'ba_brewery_name','ba.10': 'ba_bros_score', 'ba.11': 'ba_nbr_matched_valid_ratings', 'ba.12': 'ba_nbr_ratings', 
+                                                'ba.13': 'ba_nbr_reviews', 'ba.14': 'ba_style', 'ba.15': 'ba_zscore', 
+                                                'rb': 'rb_abv','rb.1': 'rb_avg', 'rb.2': 'rb_avg_computed', 'rb.3': 'rb_avg_matched_valid_ratings', 'rb.4': 'rb_beer_id', 
+                                                'rb.5': 'rb_beer_name', 'rb.6': 'rb_beer_wout_brewery_name', 'rb.7': 'rb_brewery_id', 'rb.8': 'rb_brewery_name', 
+                                                'rb.9': 'rb_nbr_matched_valid_ratings', 'rb.10': 'rb_nbr_ratings', 'rb.11': 'rb_overall_score', 'rb.12': 'rb_style', 
+                                                'rb.13': 'rb_style_score', 'rb.14': 'rb_zscore', 'scores': 'scores_diff', 'scores.1': 'scores_sim'}) 
+    beers_df_copy = beers_df_copy.drop(index=0)
+    beers_df_copy = beers_df_copy.reset_index(drop=True)
+
+    # Removing some columns that are not relevant for the scope of our project
+    beers_df_copy= beers_df_copy.drop(columns=['ba_avg_computed', 'ba_beer_id', 'ba_beer_wout_brewery_name',
+                                                'ba_brewery_id', 'rb_avg_computed', 'rb_beer_id', 'scores_diff', 'scores_sim'])
+    
+    return beers_df_copy
+
 def load_dict_like_text_file(file_path, encoding='utf-8', BLK_SIZE=100, MAX_BLK=10000) -> pd.DataFrame:
     """
     Load a text file with key-value pairs into a dictionary.
