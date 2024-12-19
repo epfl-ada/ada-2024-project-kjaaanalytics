@@ -3,12 +3,12 @@ layout: funfact
 title: "Fun Fact #4"
 subtitle: "Welcome to America!"
 previous: /storyline/analysis-3
-next: /storyline/analysis-4
+next: /storyline/climate-related-analysis
 permalink: /storyline/funfact-4/
 ---
 
 
-<img title="a title" alt="plot_funfact4" src="/assets/figures/plot_funfact4.png">
+<img title="a title" alt="plot_funfact4" src="{{'/assets/figures/plot_funfact4.png' | relative_url}}">
 
 
 ## Explainations

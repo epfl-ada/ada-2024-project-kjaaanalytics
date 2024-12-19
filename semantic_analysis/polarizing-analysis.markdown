@@ -4,7 +4,7 @@ title: "Semantic Analysis #3"
 subtitle: "Did you know? Beers can be polarizing! My sunglasses are polarized. Does it mean beer = sunglasses?"
 previous: /storyline/funfact-3
 next: /storyline/funfact-4
-permalink:  /storyline/analysis-3
+permalink:  /storyline/polarizing-analysis
 ---
 
 Bob liked the friendliness of belgian people so he goes to Canada to test the friendliness of canadians :). However, he wants to learn more about Canadian beer preferences. Do Canadian also rate beers  more nicely or if do they tend to like more polarizing beers. 

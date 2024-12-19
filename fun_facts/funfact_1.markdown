@@ -3,7 +3,7 @@ layout: funfact
 title: "From Switzerland to England"
 subtitle: "If needed quick transition text here!"
 previous: /storyline/about
-next: /storyline/analysis-1
+next: /storyline/semantic-analysis
 permalink: /storyline/funfact-1/
 ---
 

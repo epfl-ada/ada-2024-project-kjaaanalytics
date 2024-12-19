@@ -3,7 +3,7 @@ layout: funfact
 title: "Fun Fact #2"
 subtitle: "Exploring the most-loved beers in different countries"
 previous: /storyline/analysis-1
-next: /storyline/analysis-2
+next: /storyline/seasonality-analysis
 permalink: /storyline/funfact-2/
 ---
 

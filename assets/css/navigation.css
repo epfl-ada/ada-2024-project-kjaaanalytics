@@ -2,9 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    margin: 30px 0px;
+    margin: 20px 0px;
     flex-shrink: 0;
-    min-height: 150px;
 }
 
 /* Individual button styles */
@@ -20,7 +19,7 @@
     font-weight: bold;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 150px; /* Adjust width as needed */
+    width: 250px; /* Adjust width as needed */
     height: 20px;
     align-items: center;
 }
@@ -34,12 +33,12 @@
 /* Align buttons to the corners */
 .nav-button.left-button {
     text-align: center;
-    justify-content: left;
+    justify-content: center;
 }
 
 .nav-button.right-button {
     text-align: center;
-    justify-content: right;
+    justify-content: center;
 }
 
 #nav-button-icon-right {

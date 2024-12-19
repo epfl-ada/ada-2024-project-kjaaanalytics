@@ -4,10 +4,10 @@ title: "Semantic Analysis #2"
 subtitle: "Seasonality w.r.t beer ratings? Beer # ratings perhaps?"
 previous: /storyline/funfact-2
 next: /storyline/funfact-3
-permalink:  /storyline/analysis-2
+permalink:  /storyline/seasonality-analysis
 ---
 
-<img title="a title" alt="plot analysis 2" src="/assets/figures/plot_analysis2.png">
+<img title="a title" alt="plot analysis 2" src="{{'/assets/figures/plot_analysis2.png' | relative_url}}">
 
 ## Explainations
 

@@ -3,8 +3,8 @@ layout: analysis
 title: "Semantic Analysis #4"
 subtitle: "Arizona (Not the Tea....The State please)"
 previous: /storyline/funfact-4
-next: /storyline/conclusion
-permalink:  /storyline/analysis-4
+next: /storyline/conclusion 
+permalink:  /storyline/climate-related-analysis
 ---
 
 After leaving the freezing country of Canada, Bob arrives in Arizona. … .We help Bob identify popular style in different climate. 

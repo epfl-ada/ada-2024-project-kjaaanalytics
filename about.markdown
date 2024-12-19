@@ -17,7 +17,7 @@ Bob's Beer Journey is a project that aims to provide insights into the world of 
 <hr class="divider">
 
 <!-- Team members section -->
-<h2 style="margin-top: 0px">Meet the Team</h2>
+<h2 style="margin-top: 0px;">Meet the Team</h2>
 <div class="team-container">
     <div class="team-member">
         <div class="name">Alex</div>
