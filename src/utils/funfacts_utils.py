@@ -5,6 +5,7 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
+from scipy.stats import ttest_ind
 
 
 #### Fun fact #1 - Bob travels from Switzerland to UK (using rating score column)
@@ -66,7 +67,7 @@ def df_funfact_1(beers_df_copy):
 
 
 # Defining a function to create the plot for funfact_1
-def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_funfact_1_df):
+def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_funfact_1_df, p_vals):
     """
     Plot the top N beer styles by average rating for Switzerland and England.
     This function generates a bar chart using Plotly to compare the average 
@@ -84,12 +85,15 @@ def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_f
     merged_rating_funfact_1_df : pandas.DataFrame
         A merged DataFrame with average ratings for each style category for 
         both Switzerland and England before pivoting.
+    p_vals : pandas.Series
+        A Series with `style_category` as the index and p-values as values 
+        indicating significance for each style.
 
     Returns:
     -------
-    None
-        The function displays the Plotly bar chart but does not return any 
-        value.
+    fig : plotly.graph_objs._figure.Figure
+        The Plotly figure object.
+    
     """
     # Filtering the data for the top N styles by average rating
     top_styles_rating_df = pivot_rating_sorted_funfact_1_df.head(num_styles)
@@ -99,6 +103,11 @@ def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_f
 
     # Merging back to include country data
     filtered_rating_df = merged_rating_funfact_1_df[merged_rating_funfact_1_df['style_category'].isin(top_styles_rating_df['style_category'])]
+
+    # Create a column to add stars for significant styles
+    filtered_rating_df['significance'] = filtered_rating_df['style_category'].apply(
+        lambda x: '*' if p_vals.get(x, 1) < 0.05 else ''
+    )
 
     # Plotting bar chart using Plotly
     fig = px.bar(
@@ -113,6 +122,18 @@ def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_f
         color_discrete_sequence=px.colors.qualitative.Pastel  
     )
 
+    # Adding annotations (stars for significant styles)
+    for style, significance in zip(filtered_rating_df['style_category'], filtered_rating_df['significance']):
+        if significance:  # Only annotate significant styles
+            avg_rating = filtered_rating_df[filtered_rating_df['style_category'] == style]['rating'].max()
+            fig.add_annotation(
+                x=style,
+                y=avg_rating + 0.1,  # Slightly above the bar
+                text=significance,  # Add the star
+                showarrow=False,
+                font=dict(size=14, color='red')  # Customize font
+            )
+
     # Enhancing chart appearance
     fig.update_layout(
         title={
@@ -120,18 +141,17 @@ def plot_funfact_1(num_styles, pivot_rating_sorted_funfact_1_df, merged_rating_f
             'x': 0.5,  
             'xanchor': 'center', 
             'yanchor': 'top',
-            'font': {'size': 20}  
+            'font': {'size': 15}  
         },
         xaxis_title='Beer Style',
         yaxis_title='Average Rating Score',
         xaxis_tickangle=-45,  
         legend_title='Country',
         template='plotly_white',
-        margin={'t': 50, 'b': 100, 'r': 50, 'l': 50}, 
+        margin= dict(t=50, l=25, r=25, b=25),
+        paper_bgcolor="rgb(0,0,0,0)",
+        plot_bgcolor="rgba(0, 0, 0, 0)",
     )
-
-    # Displaying the plot
-    #fig.show()
 
     return fig
 
@@ -181,6 +201,7 @@ def df_funfact_2(beers_df_copy):
 
     # Filtering the DataFrame to include only these beers
     rating_by_year_beer_filtered = rating_by_year_beer[rating_by_year_beer['beer_name'].isin(beers_with_all_years)]
+    rating_by_year_beer_filtered = rating_by_year_beer_filtered[rating_by_year_beer_filtered['beer_name'] != 'Girardin Kriek']
 
     return belgium_beers, rating_by_year_beer_filtered
 
@@ -200,8 +221,8 @@ def plot_funfact_2(rating_by_year_beer_filtered):
 
     Returns:
     -------
-    None
-        The function displays the Plotly line chart but does not return any value.
+    fig : plotly.graph_objs._figure.Figure
+        The Plotly figure object.
     """
     # Plotting a line chart using Plotly
     # Each line represents a beer, showing its average rating over the years
@@ -231,9 +252,13 @@ def plot_funfact_2(rating_by_year_beer_filtered):
         xaxis=dict(
             tickmode='linear',  
             tick0=min(rating_by_year_beer_filtered['year']), 
-            dtick=1  
+            dtick=1, 
         ),
-        yaxis=dict(title='Average Rating'),
+        yaxis=dict(
+            title='Average Rating',
+            range=[0.5, 5],
+            tickmode='linear',  
+            dtick=1),
         legend_title=dict(text='Beer Name'),
         template='plotly_white',  
         title_font=dict(size=20),
@@ -241,11 +266,11 @@ def plot_funfact_2(rating_by_year_beer_filtered):
             title='Beer Name',
             x=1.05,  
             y=1
-        )
+        ),
+        margin= dict(t=50, l=25, r=25, b=25),
+        paper_bgcolor="rgb(0,0,0,0)",
+        plot_bgcolor="rgba(0, 0, 0, 0)"
     )
-
-    # Displaying the plot
-    #fig.show()
 
     return fig
 
@@ -279,8 +304,9 @@ def df_funfact_3(beers_df_copy):
     # Grouping by beer_name and country, calculate the average rating
     beer_avg_rating = (
         filtered_data_belg_can.groupby(['style_category', 'country_user'])['rating']
-        .mean()
+        .count()
         .reset_index()
+        .rename(columns={'rating': 'rating_count'})
     )
 
     # Belgium data
@@ -310,13 +336,13 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
 
     Returns:
     -------
-    None
-        Displays an interactive plotly chart comparing Belgium and Canada beer styles.
+    fig : plotly.graph_objs._figure.Figure
+        The Plotly figure object.
     """
     # Generating a color palette with exactly 16 distinct colors
     unique_styles = beer_avg_rating['style_category'].unique()
     num_styles = len(unique_styles)
-    color_palette = sns.color_palette("tab20", num_styles).as_hex()  # Convert to HEX for Plotly
+    color_palette = sns.color_palette("tab20", num_styles).as_hex() 
 
     # Creating a color map for style categories
     color_map = {style: color for style, color in zip(unique_styles, color_palette)}
@@ -331,7 +357,7 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
     # Adding Belgium pie chart
     fig.add_trace(go.Pie(
         labels=belgium_data['style_category'],
-        values=belgium_data['rating'],
+        values=belgium_data['rating_count'],
         marker=dict(colors=belgium_colors),
         name="Belgium",
         textinfo='label+percent',
@@ -343,7 +369,7 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
     # Adding Canada pie chart
     fig.add_trace(go.Pie(
         labels=canada_data['style_category'],
-        values=canada_data['rating'],
+        values=canada_data['rating_count'],
         marker=dict(colors=canada_colors),
         name="Canada",
         textinfo='label+percent',
@@ -355,21 +381,25 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
 
     # Customizing the layout of the plot
     fig.update_layout(
-        title="Beer styles in Belgium and Canada (Based on Average Ratings)",
-        title_x=0.5,  
+       title=dict(
+            text="Beer Styles in Belgium and Canada (Based on Rating Counts)",
+            x=0.17, 
+            y=1,  
+            font=dict(size=18, family="Arial", color="black")
+        ),  
         grid=dict(columns=2, rows=1),  
         annotations=[
             dict(
                 text='<b>Belgium</b>',  
                 x=0.20,
-                y=1.1, 
+                y=1.05, 
                 font=dict(size=15, family="Arial", color="black"),
                 showarrow=False
             ),
             dict(
                 text='<b>Canada</b>', 
                 x=0.80,
-                y=1.1, 
+                y=1.05, 
                 font=dict(size=15, family="Arial", color="black"),
                 showarrow=False
             )
@@ -384,10 +414,10 @@ def plot_funfact_3(beer_avg_rating, belgium_data, canada_data):
         showlegend=True, 
         height=500,  
         width=1100, 
+        margin= dict(t=50, l=25, r=25, b=25),
+        paper_bgcolor="rgb(0,0,0,0)",
+        plot_bgcolor="rgba(0, 0, 0, 0)"
     )
-
-    # Displaying the figure
-    #fig.show()
 
     return fig
 
@@ -464,8 +494,8 @@ def plot_funfact_4_brewery(most_popular_brewery):
 
     Returns:
     -------
-    None
-        The function displays the bar chart using Plotly.
+    fig : plotly.graph_objs._figure.Figure
+        The Plotly figure object.
     """
     # Generating unique colors for each brewery
     unique_breweries = most_popular_brewery['most_popular_brewery'].unique()
@@ -502,7 +532,9 @@ def plot_funfact_4_brewery(most_popular_brewery):
         legend_title_text='Brewery Name',
         height=600,
         width=1000,
-        margin=dict(l=50, r=50, t=50, b=100)  
+        margin= dict(t=50, l=25, r=25, b=25),
+        paper_bgcolor="rgb(0,0,0,0)",
+        plot_bgcolor="rgba(0, 0, 0, 0)"  
     )
 
     # Adding hover template for detailed tooltips
@@ -511,9 +543,6 @@ def plot_funfact_4_brewery(most_popular_brewery):
                     '<b>Brewery:</b> %{customdata[0]}<br>' +
                     '<b>Count:</b> %{y}<extra></extra>'
     )
-
-    # Displaying the figure
-    #fig.show()
 
     return fig
 
@@ -556,3 +585,41 @@ def save_plot_as_svg(fig, save_path):
     """
 
     pio.write_image(fig, save_path, format='svg')
+
+def calculate_p_values(beers_df_copy):
+    """
+    Calculate p-values for the difference in average ratings between Switzerland and England 
+    for each beer style using a t-test.
+
+    Parameters:
+    ----------
+    beers_df_copy : pandas.DataFrame
+        A DataFrame containing beer data.
+
+    Returns:
+    -------
+    p_vals : pandas.Series
+        A Series where the index is style_category and the value is the p-value 
+        for the difference in ratings between Switzerland and England.
+    """
+    # Filtering data for Switzerland and England
+    switzerland_data = beers_df_copy[beers_df_copy['country_user'] == 'Switzerland']
+    england_data = beers_df_copy[beers_df_copy['country_user'] == 'England']
+
+    # Grouping data by style and collect ratings
+    p_values = {}
+    for style in beers_df_copy['style_category'].unique():
+        switzerland_ratings = switzerland_data[switzerland_data['style_category'] == style]['rating']
+        england_ratings = england_data[england_data['style_category'] == style]['rating']
+        
+        # Performing t-test if both countries have ratings for the style
+        if len(switzerland_ratings) > 1 and len(england_ratings) > 1:
+            _, p_value = ttest_ind(switzerland_ratings, england_ratings, equal_var=False)
+        else:
+            p_value = 1  
+        
+        p_values[style] = p_value
+
+    # Converting to a pandas Series for easier integration
+    p_vals = pd.Series(p_values, name='p_value')
+    return p_vals
