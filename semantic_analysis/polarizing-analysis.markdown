@@ -1,6 +1,6 @@
 ---
 layout: analysis
-title: "Semantic Analysis #3"
+title: "Polar"
 subtitle: "Did you know? Beers can be polarizing! My sunglasses are polarized. Does it mean beer = sunglasses?"
 previous: /storyline/funfact-3
 next: /storyline/funfact-4
@@ -11,7 +11,7 @@ Bob liked the friendliness of belgian people so he goes to Canada to test the fr
 
 First, let’s look at the distribution of the ratings for the canadian users.
 
-<img title="a title" alt="plot analysis 3" src="/assets/figures/canada_beer_ratings_distribution.svg">
+<img alt="Polarizing analysis plot" src="{{'/assets/figures/canada_beer_distributions.svg' | relative_url}}">
 
 ## So, which beers are the most polarizing then?
 
