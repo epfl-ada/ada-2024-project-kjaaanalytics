@@ -111,7 +111,6 @@ The **word clouds** act as a visual representation of the word frequency.
 The **frequency plots** act as a statistical representation of the word frequency. The word clouds are by default not entirely accurate to the word frequency plots as they prioritize fitting words accurately over sizing words exactly to size based on frequency.
 
 
-
 ### Part 3: Seasonal and geospatial Analysis
 #### **Main Goal**
 - Observe general beer preferences trend changes across the geospatial and seasonal dimension.
@@ -170,15 +169,50 @@ The **frequency plots** act as a statistical representation of the word frequenc
 
 ---
 
-### Part 4: Storyline Visualization (Putting it All Together)
+### Part 4: Funfacts
 
-#### **Plotting the World Map with Beer Preferences by User Country**
-- Display beer preferences according to users' countries.
+#### **Funfact 1: Bob travels from Switzerland to UK**
 
-#### **Radar Chart of Regional Beer Flavors**
-- **Axes**: Represent flavors like "Hoppy," "Malty," "Fruity," "Spicy," etc.  
-- **Regional Variation**: Each region within a country can have its own radar line to show variations.  
-- **Interactive Feature**: Add an interactive element to allow users to choose a country.
+1. **Prepare dataframe**:
+
+- Filter beer rating data for Switzerland and England, compute average ratings by style category for each country, merge the results, and create a pivoted DataFrame to compare ratings, highlighting differences and sorting by the most significant absolute rating differences.
+
+2. **Plot the bar chart using plotly**:
+
+- Generate an interactive Plotly bar chart comparing the 17 beer styles' average ratings between Switzerland and England, annotating significant differences and enhancing chart clarity with a clean design and labels.
+
+- Additionally, a function computes p-values using a t-test to assess the statistical significance of differences in average beer ratings between Switzerland and England for each style category, returning the results as a Series. The significant beer styles are showed with a red star on top.
+
+#### **Funfact 2: Bob travels from UK to Belgium**
+
+1. **Prepare dataframe***:
+
+- Filter Belgian beer data, extract yearly ratings, and identify beers consistently rated across all years, creating datasets for analysis of average ratings by year and beer.
+
+2. **Plot the line chart using plotly**:
+
+- Create a Plotly line chart to visualize year-over-year average ratings for consistently rated Belgian beers, enhancing understanding of trends with markers and a clear, interactive design.
+
+#### **Funfact 3: Bob travels from Belgium to Canada**
+
+1. **Prepare dataframe**:
+
+- Filter beer data for Belgium and Canada, calculate average rating counts by style category, and return datasets for Belgian, and Canadian beer style analysis
+
+2. **Plot the pie charts using plotly**:
+
+- Generate two pie charts using Plotly to compare the distribution of beer styles by rating counts in Belgium and Canada, with distinct color mapping.
+
+#### **Funfact 4: Bob travels from Canada to the USA**
+
+1. **Prepare dataframe**:
+
+- Filter beer data for U.S. breweries, calculate the average rating for each state, and create datasets for analyzing and ranking states by their average beer ratings.
+- Identify the most popular brewery in each U.S. state by counting the number of beer entries for each brewery and selecting the one with the highest count per state.
+
+2. **Plot the bar chart using plotly**:
+
+- Generate a bar chart that visualizes the most popular brewery in each U.S. state based on the highest number of entries, with distinct colors for each brewery.
 
 
 ## Proposed timeline
@@ -189,50 +223,6 @@ The **frequency plots** act as a statistical representation of the word frequenc
 - **13.12.24**: Finalize the Data Story Webpage, and use interactive visualizations to show the project
 - **20.12.24**: Deadline for the project
 
-**### Part 5: Funfacts**
-
-**#### **Funfact 1: Bob travels from Switzerland to UK****
-
-1. ****Prepare dataframe****:
-
-- Filter beer rating data for Switzerland and England, compute average ratings by style category for each country, merge the results, and create a pivoted DataFrame to compare ratings, highlighting differences and sorting by the most significant absolute rating differences.
-
-2. ****Plot the bar chart using plotly****:
-
-- Generate an interactive Plotly bar chart comparing the 17 beer styles' average ratings between Switzerland and England, annotating significant differences and enhancing chart clarity with a clean design and labels.
-
-- Additionally, a function computes p-values using a t-test to assess the statistical significance of differences in average beer ratings between Switzerland and England for each style category, returning the results as a Series. The significant beer styles are showed with a red star on top.
-
-**#### **Funfact 2: Bob travels from UK to Belgium****
-
-1. ****Prepare dataframe****:
-
-- Filter Belgian beer data, extract yearly ratings, and identify beers consistently rated across all years, creating datasets for analysis of average ratings by year and beer.
-
-2. ****Plot the line chart using plotly****:
-
-- Create a Plotly line chart to visualize year-over-year average ratings for consistently rated Belgian beers, enhancing understanding of trends with markers and a clear, interactive design.
-
-**#### **Funfact 3: Bob travels from Belgium to Canada****
-
-1. ****Prepare dataframe****:
-
-- Filter beer data for Belgium and Canada, calculate average rating counts by style category, and return datasets for Belgian, and Canadian beer style analysis
-
-2. ****Plot the pie charts using plotly****:
-
-- Generate two pie charts using Plotly to compare the distribution of beer styles by rating counts in Belgium and Canada, with distinct color mapping.
-
-**#### **Funfact 4: Bob travels from Canada to the USA****
-
-1. ****Prepare dataframe****:
-
-- Filter beer data for U.S. breweries, calculate the average rating for each state, and create datasets for analyzing and ranking states by their average beer ratings.
-- Identify the most popular brewery in each U.S. state by counting the number of beer entries for each brewery and selecting the one with the highest count per state.
-
-2. ****Plot the bar chart using plotly****:
-
-- Generate a bar chart that visualizes the most popular brewery in each U.S. state based on the highest number of entries, with distinct colors for each brewery.
 
 ## Organization within the team
 
