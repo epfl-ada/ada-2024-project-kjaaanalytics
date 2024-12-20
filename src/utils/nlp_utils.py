@@ -418,13 +418,12 @@ def generate_wordclouds(df,seasonal=True,  mask_path='data/img/image_beers.png',
             season_df = df[df['season_num'] == season_num]
             text = ' '.join(season_df['preprocessed text'].tolist())
             wordcloud = WordCloud(background_color='white', mask=beer_mask, contour_width=2).generate(text)
-            
             axs[i].imshow(wordcloud, interpolation='bilinear')
             axs[i].set_title(f'{season_name}')
             axs[i].axis('off')
             plt.tight_layout(pad=2.0, w_pad=1.5, h_pad=1.5)  # Reduce the space between subplots
-            plt.show()
             plt.savefig(saving_path, dpi=dpi, bbox_inches='tight')
+        plt.show()
     else:
         fig = plt.figure(figsize=(10, 5)) 
         text = ' '.join(df['preprocessed text'].tolist())
