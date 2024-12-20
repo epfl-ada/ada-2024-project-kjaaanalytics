@@ -181,8 +181,31 @@ The **frequency plots** act as a statistical representation of the word frequenc
 - **13.12.24**: Finalize the Data Story Webpage, and use interactive visualizations to show the project
 - **20.12.24**: Deadline for the project
 
+### Part 5: Funfacts
 
+#### **Funfact 1: Bob travels from Switzerland to UK**
 
+1. **Prepare dataframe**:  
+
+2. **Plot the bar chart using plotly**:  
+
+#### **Funfact 2: Bob travels from UK to Belgium**
+
+1. **Prepare dataframe**:  
+
+2. **Plot the line chart using plotly**:  
+
+#### **Funfact 3: Bob travels from Belgium to Canada**
+
+1. **Prepare dataframe**:  
+
+2. **Plot the pie charts using plotly**:  
+
+#### **Funfact 4: Bob travels from Canada to the USA**
+
+1. **Prepare dataframe**:  
+
+2. **Plot the bar chart using plotly**:  
 
 ## Organization within the team
 
