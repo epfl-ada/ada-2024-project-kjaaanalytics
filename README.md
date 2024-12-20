@@ -280,6 +280,8 @@ The directory structure of new project looks like this:
 ├── tests                       <- Tests of any kind
 │
 ├── results.ipynb               <- a well-structured notebook showing the results
+|
+├── website                     <- Website related files
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── pip_requirements.txt        <- File for installing python dependencies
