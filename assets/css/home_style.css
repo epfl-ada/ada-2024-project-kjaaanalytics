@@ -7,8 +7,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #eeb65c, #d17b42);
-    color: white;
+    background: linear-gradient(to bottom, #5f808b, #8e95af);
+    color: rgb(194, 214, 237);
     text-align: center;
 }
 header {
