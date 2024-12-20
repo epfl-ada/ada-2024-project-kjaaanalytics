@@ -19,10 +19,6 @@ Bob’s hypothesis was partly correct. Indeed, some styles seem to have more suc
 
 This is the case for *American Ales (Brown, Amber, Red,* and *Black)*, which are best-rated in Fall and Winter. Those beer styles usually display deep caramel and chocolate flavor profiles, and medium to high bitterness. In summer, the *Faro* style, which comes from Brussels is popular mainly in spring and summer. *Faro* is made from *Lambic* beer, by adding additional brown sugar. The two *Lambic* styles are also best-rated in spring, which hints at distinct taste preferences during this season. This style is also known for its cidery aftertaste.
 
-Over the year, cidery styles like *Lambic* and *Faro* or lighter beers such as *Mailbock* seemed to be preferred in spring, whereas deep and bitter beers, like the *American Ales*, are best rated in fall and winter
-
-Nevertheless, some styles, such as *Gueuze* seem to be year-round staples for Belgians. This local beer style is highly carbonated and made from *Lambic* beers. *Eisbock* as well is enjoyed both in winter and in summer, despite its malty flavor and strong alcohol content.
-
-Overall, Bob’s intuition was partly right! He is quite happy about this insight into seasonal preferences and is ready to share it with fellow beer enthusiasts during the beer festival. 
+Over the year, cidery styles like *Lambic* and *Faro* or lighter beers such as *Mailbock* seemed to be preferred in spring, whereas deep and bitter beers, like the *American Ales*, are best rated in fall and winter. Nevertheless, some styles, such as *Gueuze* seem to be year-round staples for Belgians. This local beer style is highly carbonated and made from *Lambic* beers. *Eisbock* as well is enjoyed both in winter and in summer, despite its malty flavor and strong alcohol content. Overall, Bob’s intuition was partly right! He is quite happy about this insight into seasonal preferences and is ready to share it with fellow beer enthusiasts during the beer festival. 
 
 He is now eager to explore how beer preferences shift in a different cultural and geographical context. With its unique regional styles, Canada offers the perfect opportunity to compare and contrast brewing traditions.

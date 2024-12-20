@@ -50,10 +50,10 @@ footer {
 /* Simple divider between sections */
 .divider {
     border: none;
-    height: 3px;
-    background-color: #ddd;
-    width: 50%;
-    margin: 30px 0; /* Adjust the margin as needed */
+    min-height: 3px;
+    background-color: #ababab;
+    width: 60%;
+    margin: 20px 0; /* Adjust the margin as needed */
     align-self: center;
 }
 

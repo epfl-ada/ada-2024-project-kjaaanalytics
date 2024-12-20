@@ -16,4 +16,6 @@ He is now relieved and can compare the differences between Swiss and English pre
 
 Overall, Bob learns on his journey to England that the two most appreciated beer styles in England are Stout and Porter! He also finds out that the average rating of the 2 countries differs the most for low alcohol beers. While England seems to rather enjoy this type of beer, Swiss people do not seem fond of low alcohol beers. Let’s follow along Bob’s journey to England!
 
-- The beer style that is rated the most differently between the two countries is Low Alcohol one. The beer style that is rated approximately the same in both countries is Strong Ale!
+→ The beer style that is rated the most differently between the two countries is Low Alcohol one.
+
+→ The beer style that is rated approximately the same in both countries is Strong Ale!

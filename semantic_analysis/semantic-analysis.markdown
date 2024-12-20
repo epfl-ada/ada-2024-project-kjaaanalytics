@@ -17,5 +17,10 @@ To help Bob hone his skills in beer descriptions we plot a word cloud depending 
 
 Bob knows that Stout and Porter beers are the most appreciated in England. He can know describe them like a connoiseur. For example, to describe Stout, he can say that the beer is light, sweet and that it tastes like dark chocolate! He also wonders how the word descriptions can change throughout the year. To help him, we plotted the word clouds according to the seasons for all types of beers !
 
+<div style="align-self: center">
 <img alt="Seasonality Analysis" src="{{'/assets/figures/word_clouds_seasons.svg' | relative_url}}" width="650">
-Semantics do not seem to change much through the year. However, could it be that preferences shift according to the seasons?  For example, we can see that sweet, dry and bitter are used all year long.  Follow along as Bob goes on a new adventure to discover the seasonality of beers preference. What better way to discover that than going to one of the biggest beer festivals in the capital of beer : _Brussels_!
+</div>
+
+Semantics do not seem to change much through the year. However, could it be that preferences shift according to the seasons?  For example, we can see that sweet, dry and bitter are used all year long.  
+
+Follow along as Bob goes on a new adventure to discover the seasonality of beers preference. What better way to discover that than going to one of the biggest beer festivals in the capital of beer : _Brussels_!

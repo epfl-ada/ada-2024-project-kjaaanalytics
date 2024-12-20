@@ -14,6 +14,10 @@
     transition: opacity 0.5s ease; /* Smooth transition for appearance */
 }
 
+.popup-container .h2 {
+    text-align: center;
+}
+
 .popup-container.show {
     visibility: visible; /* Make visible */
     opacity: 1; /* Fade in */
