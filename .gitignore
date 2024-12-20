@@ -163,3 +163,5 @@ cython_debug/
 
 local_data/
 tests/ALEX_Milestone2_ALL.ipynb
+Gemfile.lock
+_site/
