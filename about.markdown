@@ -34,7 +34,7 @@ This interactive website has been designed to provide a seamingless user experie
     <div class="team-member">
         <div class="name">Julie</div>
         <div class="master-section"> CSE </div>
-        <div class="student-number"> XXXXX </div>
+        <div class="student-number"> 314454 </div>
     </div>
     <div class="team-member">
         <div class="name">Amelie</div>
