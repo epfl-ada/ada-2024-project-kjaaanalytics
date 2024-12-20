@@ -13,6 +13,7 @@ from rasterio.features import geometry_mask
 from shapely.geometry import Point, shape
 from shapely.ops import unary_union
 from collections import Counter
+from IPython.display import HTML
 
 # Visualization libraries
 import matplotlib.pyplot as plt
@@ -45,80 +46,6 @@ def load_geotiff(file_name):
         data = downsampling_layer(torch.tensor(array[_,_,:,:], dtype=torch.float32)).detach().numpy()
 
     return data[0,0]
-
-
-def animation_belgium(world, clim_data, variable):
-    ''' Create an animation of yearly climatic variable in Belgium
-    
-    Input:
-        world: gpd.GeoDataFrame
-            Geometries of all countries, previously downloaded from naturalearth dataset
-
-        clim_data: np.array of size (12, 2088, 4320)
-            Climatic variable data for 12 months acrosse the world
-        
-        variable: str
-            Specifies the unit of the axis
-
-    Output:
-        anim: .gif
-            animation in saved as a .gif format
-
-    '''
-
-    belgium = world[world["ADMIN"] == "Belgium"]
-
-    pixel_size = 360 / clim_data[0].shape[1]
-    transform = from_origin(-180, 90, pixel_size, pixel_size)
-
-    mask = geometry_mask(
-            geometries=belgium["geometry"].values,
-            out_shape=clim_data[0].shape,
-            transform=transform,
-            invert=True  # True where the geometry is located
-        )
-    
-    # Generate animation
-
-    if (variable == "tmean") or(variable == "tmin") or (variable == "tmax"):
-        label = "Temperature [°C]"
-    elif variable == "prec":
-        label = "Precipitation [mm]"
-    else:
-        label = ""
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    cmap = 'seismic'
-
-    vmin = 0
-    vmax = 30
-    norm = Normalize(vmin=vmin, vmax=vmax)
-
-    # add legend
-    sm = cm.ScalarMappable(cmap=cmap, norm=norm)
-    sm.set_array([])  
-    cbar = fig.colorbar(sm, ax=ax, orientation='vertical')
-    cbar.set_label(f"{label}")  # Label the color bar with the variable name
-    
-
-    def update(frame):
-        months = ['January', 'February', 'March', 'April', 'May', 'June',
-                    'July', 'August', 'September', 'October', 'November', 'December']
-        ax.clear()  # Clear previous plot
-
-        masked_data = np.where(mask, clim_data[frame], np.nan)
-
-        ax.imshow(masked_data, cmap=cmap, vmin=vmin , vmax=vmax)  # Initialize with the first frame
-        ax.set_title(f"{months[frame]}")
-        ax.set_axis_off()
-        ax.set_xlim(2180,2240)
-        ax.set_ylim(450,500)
-
-    # Create the animation
-    anim = FuncAnimation(fig, update, frames=range(12), repeat=True)
-
-    # Save the animation as a GIF file
-    #anim.save(f"output/animations/belgium_{variable}.gif", writer="pillow", fps=3)
 
 
 def interpolate_temp(data, map_gdf):
@@ -385,7 +312,6 @@ def get_season_name(season_num):
         return "Fall"
 
 
-
 def plot_seasonal_preferences(top_styles_per_season):
     # Adding unique colors for each beer style
     color_mapping = {
@@ -440,6 +366,27 @@ def plot_seasonal_preferences(top_styles_per_season):
     fig.show()
 
 def find_coordinates(data, us):
+    ''' Link the coordinate system of climatic data (a np.array) and of a GeoDataFrame is the system WGS84.
+    
+    Input: 
+        data: np.array of size (12, 2088, 4320)
+            Climatic data for 12 months acrosse the world
+
+        us: GeoDataFrame
+            Gdf containing the geometry of the country of interest, with the coordinate system WGS84
+
+    Output:
+        us_pixel_indices: list
+            Indices of the array that belongs to the country in us.
+        
+        us_pixel_coords: 
+            Coordinates of each point of the array that belongs to the country is us.
+
+        inverse_transform: rasterio object
+            inverse coordinate transform.
+
+    
+    '''
 
     # Define pixel size and transformation for WGS84
     pixel_size = 360 / data.shape[1]  # Calculate pixel size dynamically based on array dimensions
@@ -467,6 +414,30 @@ def find_coordinates(data, us):
 
 
 def data_preparation(tmean_data, prec_data, us):
+    ''' Generates a dataframe contining necessary features for clustering.
+    
+    Input: 
+        tmean_data: np.array of size (12, 2088, 4320)
+            Temperature data for 12 months acrosse the world
+
+        prec_data: np.array of size (12, 2088, 4320)
+            Precipitation data for 12 months acrosse the world
+
+        us: GeoDataFrame
+            Gdf containing the geometry of the country of interest
+
+    Output:
+        us_df: pd.DataFrame
+            Df containing the features necessary for clustering (12 normalised monthly values for temperature and precipitation)
+            and the geographical coordinates of each point (lat, lon)
+
+        tmean_scaler:  scipy.StandardScaler() object
+            Scaler for temperature data
+
+        prec_scaler: scipy.StandardScaler() object
+            Scaler for precipitation data
+    
+    '''
 
     us_pixel_indices, us_pixel_coords, inverse_transform = find_coordinates(tmean_data[0], us)
     
@@ -544,6 +515,29 @@ def get_kmean_score(n, us_df):
 
 
 def weather_clustering(us_df, ch_df):
+    ''' Performs clustering on weather data:
+
+    Input:
+        us_df: pd.DataFrame
+            Data on which the fit the KMeans algorithm
+
+        ch_df: pd.DataFrame
+            Data whose label needs to be predicted
+
+    Output: 
+        clustered_df: pd.DataFrame
+            us_df with additional "labels" column corresponding to the assigned cluster
+         
+        n_clusters: np.array
+            collections of n tried for the number of clusters
+        
+        scores: np.array
+            corresponding collection of MSE score on the training data
+        
+        ch_labels: np.array
+            list of labels corresponding to each point in ch_df.
+    
+    '''
 
     clustering_cols = ['tmean_1', 'prec_1', 'tmean_2', 'prec_2', 'tmean_3',
        'prec_3', 'tmean_4', 'prec_4', 'tmean_5', 'prec_5', 'tmean_6', 'prec_6',
