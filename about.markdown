@@ -13,7 +13,7 @@ In this project, the KJAAAnalytics team has taken the challenge of assisting EPF
 
 ## Interactive journey
 
-This interactive website has been designed to provide a seamingless user experience through Bob's journey. Using the navigation buttons, the navigation sidebar or even the above timeline icons (clickable!), find out some of Bob's discoveries. Deepen into Bob's thoughts by navigating throught alternating funfacts and analysis, give the user the best experience as possible!
+This interactive website has been designed to provide a seamingless user experience through Bob's journey. Using the navigation buttons, the navigation sidebar or even the above timeline icons (clickable!), find out some of Bob's discoveries. Deepen into Bob's thoughts by navigating throught alternating funfacts and analysis, giving the user the best experience as possible!
 
 <!-- Divider -->
 <hr class="divider">
