@@ -1,17 +1,17 @@
 # Mapping of Global Beer Preferences: A Data-Driven Travel Guide for the Beer Enthusiast
 
 ## Abstract
-In this project, we’ll assist EPFL student Bob in planning a global, beer-centered trip through data-driven insights. Using geospatial and semantic analysis, we’ll map global beer preferences to help Bob make informed choices.
-We’ll analyze beer descriptions by country through natural language processing to uncover unique linguistic patterns and local preferences, enabling Bob to order like a connoisseur. Seasonal variations in beer ratings will be examined to reveal shifts in taste preferences, guiding Bob’s choices based on time of year.
-Additionally, a geospatial analysis of beer ratings by U.S. climate zones will identify popular styles in various climates, optimizing Bob’s selections for different regions. Finally, upon his return to EPFL, we’ll leverage these findings to recommend seasonal beer selections for Satellite, EPFL’s student bar, aligned with Swiss climate patterns. This project combines spatial, temporal, and semantic insights to craft an enriched, personalized travel experience for Bob.
+In this project, the KJAAAnalytics team has taken the challenge of assisting EPFL student Bob in planning a global, beer-centered trip through data-driven insights. Using geospatial and semantic analysis, we’ll map global beer preferences to help Bob make informed choices. We’ll analyze beer descriptions by country through natural language processing to uncover unique linguistic patterns and local preferences, enabling Bob to order like a connoisseur. Seasonal variations in beer ratings will be examined to reveal shifts in taste preferences, guiding Bob’s choices based on time of year. Additionally, a geospatial analysis of beer ratings by U.S. climate zones will identify popular styles in various climates, optimizing Bob’s selections for different regions. Finally, upon his return to EPFL, we’ll leverage these findings to recommend seasonal beer selections for Satellite, EPFL’s student bar, aligned with Swiss climate patterns. 
+
+We invite you to embark on Bob’s journey, discovering fascinating insights and fun facts about global beer preferences. Discover his journey here: https://alex0021.github.io/kjaaanalytics-datastory/
 
 
 
 ## Research Questions
 In this project, we will answer the following questions : 
-- 	What beers have the best ratings depending on the country, or the beer's style ?
+- What beers have the best ratings depending on the country, or the beer's style ?
 - What are the words most used in beer descriptions according to the style of the beer and the user’s country ? 
-- 	What type of beers have the best ratings depending on the climate of the user’s location ?
+- What type of beers have the best ratings depending on the climate of the user’s location ?
 -	What are the trends in beer preferences according to the seasons ?
 
 
@@ -181,10 +181,35 @@ The **frequency plots** act as a statistical representation of the word frequenc
 - **13.12.24**: Finalize the Data Story Webpage, and use interactive visualizations to show the project
 - **20.12.24**: Deadline for the project
 
+### Part 5: Funfacts
 
+#### **Funfact 1: Bob travels from Switzerland to UK**
 
+1. **Prepare dataframe**:  
+
+2. **Plot the bar chart using plotly**:  
+
+#### **Funfact 2: Bob travels from UK to Belgium**
+
+1. **Prepare dataframe**:  
+
+2. **Plot the line chart using plotly**:  
+
+#### **Funfact 3: Bob travels from Belgium to Canada**
+
+1. **Prepare dataframe**:  
+
+2. **Plot the pie charts using plotly**:  
+
+#### **Funfact 4: Bob travels from Canada to the USA**
+
+1. **Prepare dataframe**:  
+
+2. **Plot the bar chart using plotly**:  
 
 ## Organization within the team
+
+For Milestone 2: 
 - **Kenza and Alex**:  
   Work on Part 1 (Dataset Preprocessing and Statistical Analysis) and Part 4 (Storyline Visualization).  
   - **Kenza**: Focus on the `matched_beer_dataset` i.e., `beers.csv`, `breweries.csv`, `ratings.csv`, and `users_approx.csv`.  
@@ -196,7 +221,12 @@ The **frequency plots** act as a statistical representation of the word frequenc
 - **Julie**:  
   Work on Part 3 (Geospatial Analysis) and Part 4 (Storyline Visualization).
 
+For Milestone 3:
+- **Amélie and Julie**: Analysis part.
 
+- **Andrew and Alex**: Website implementation.
+
+- **Kenza**: Funfacts part. 
 ## Questions for TAs
 
 
@@ -250,6 +280,8 @@ The directory structure of new project looks like this:
 ├── tests                       <- Tests of any kind
 │
 ├── results.ipynb               <- a well-structured notebook showing the results
+|
+├── website                     <- Website related files
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── pip_requirements.txt        <- File for installing python dependencies
